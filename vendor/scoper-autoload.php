@@ -6,8 +6,11 @@ $loader = require_once __DIR__.'/autoload.php';
 
 // Exposed classes. For more information see:
 // https://github.com/humbug/php-scoper/blob/master/docs/configuration.md#exposing-classes
-if (!class_exists('ComposerAutoloaderInit0ee2bcadf08094431442ee1115df2723', false) && !interface_exists('ComposerAutoloaderInit0ee2bcadf08094431442ee1115df2723', false) && !trait_exists('ComposerAutoloaderInit0ee2bcadf08094431442ee1115df2723', false)) {
-    spl_autoload_call('_YabeWebfont\ComposerAutoloaderInit0ee2bcadf08094431442ee1115df2723');
+if (!class_exists('YABE_WEBFONT', false) && !interface_exists('YABE_WEBFONT', false) && !trait_exists('YABE_WEBFONT', false)) {
+    spl_autoload_call('_YabeWebfont\YABE_WEBFONT');
+}
+if (!class_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false) && !interface_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false) && !trait_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false)) {
+    spl_autoload_call('_YabeWebfont\ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c');
 }
 
 return $loader;

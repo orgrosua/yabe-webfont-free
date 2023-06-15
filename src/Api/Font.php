@@ -18,7 +18,7 @@ use wpdb;
 use Yabe\Webfont\Utils\Common;
 use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Upload;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\ApiInterface
 {
     public function __construct()

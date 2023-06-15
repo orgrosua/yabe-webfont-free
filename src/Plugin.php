@@ -21,7 +21,7 @@ use Yabe\Webfont\Core\Runtime;
 use Yabe\Webfont\Utils\Common;
 use Yabe\Webfont\Utils\Debug;
 use Yabe\Webfont\Utils\Notice;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Manage the plugin lifecycle and provides a single point of entry to the plugin.
  *

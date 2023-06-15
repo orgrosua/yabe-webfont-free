@@ -13,7 +13,7 @@ namespace Yabe\Webfont\Builder\Kadence;
 
 use Yabe\Webfont\Builder\BuilderInterface;
 use Yabe\Webfont\Utils\Font;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Kadence integration.
  *

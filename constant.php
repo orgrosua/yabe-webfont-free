@@ -25,11 +25,11 @@ class YABE_WEBFONT
     /**
      * @var string
      */
-    public const VERSION = '1.0.31';
+    public const VERSION = '1.0.32';
     /**
      * @var int
      */
-    public const VERSION_ID = 10031;
+    public const VERSION_ID = 10032;
     /**
      * @var int
      */
@@ -41,7 +41,7 @@ class YABE_WEBFONT
     /**
      * @var int
      */
-    public const RELEASE_VERSION = 31;
+    public const RELEASE_VERSION = 32;
     /**
      * @var string
      */
@@ -75,3 +75,9 @@ class YABE_WEBFONT
      */
     public const PLUGIN_URI = 'https://webfont.yabe.land';
 }
+/**
+ * Plugin constants.
+ *
+ * @since 2.0.0
+ */
+\class_alias('_YabeWebfont\\YABE_WEBFONT', 'YABE_WEBFONT', \false);

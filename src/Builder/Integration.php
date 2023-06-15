@@ -13,7 +13,7 @@ namespace Yabe\Webfont\Builder;
 
 use ReflectionClass;
 use _YabeWebfont\Symfony\Component\Finder\Finder;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class Integration
 {
     /**

@@ -12,7 +12,7 @@ declare (strict_types=1);
 namespace Yabe\Webfont;
 
 use _YabeWebfont\Rosua\Migrations\Migrator;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Manage the plugin custom database tables.
  *

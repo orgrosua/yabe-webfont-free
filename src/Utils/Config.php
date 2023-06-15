@@ -16,7 +16,7 @@ use _YabeWebfont\Symfony\Component\PropertyAccess\Exception\AccessException;
 use _YabeWebfont\Symfony\Component\PropertyAccess\Exception\InvalidArgumentException;
 use _YabeWebfont\Symfony\Component\PropertyAccess\Exception\UnexpectedTypeException;
 use _YabeWebfont\Symfony\Component\PropertyAccess\PropertyAccess;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Accessor for the plugin config.
  *

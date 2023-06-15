@@ -16,7 +16,7 @@ use WP_REST_Response;
 use WP_REST_Server;
 use Yabe\Webfont\Api\AbstractApi;
 use Yabe\Webfont\Api\ApiInterface;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class Option extends AbstractApi implements ApiInterface
 {
     public function __construct()

@@ -17,7 +17,7 @@ use WP_REST_Server;
 use Yabe\Webfont\Api\AbstractApi;
 use Yabe\Webfont\Api\ApiInterface;
 use Yabe\Webfont\Plugin;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class License extends AbstractApi implements ApiInterface
 {
     public function __construct()

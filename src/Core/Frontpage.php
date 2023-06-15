@@ -13,7 +13,7 @@ namespace Yabe\Webfont\Core;
 
 use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Debug;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Serve the font on the frontpage.
  *

@@ -11,7 +11,7 @@
 declare (strict_types=1);
 namespace Yabe\Webfont\Api;
 
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class AbstractApi
 {
     /**

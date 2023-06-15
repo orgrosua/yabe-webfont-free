@@ -16,7 +16,7 @@ use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Font;
 use Yabe\Webfont\Utils\Notice;
 use Yabe\Webfont\Utils\Upload;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Manage the cache of fonts for the frontpage.
  *

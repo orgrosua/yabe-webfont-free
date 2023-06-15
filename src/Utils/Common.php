@@ -12,7 +12,7 @@ declare (strict_types=1);
 namespace Yabe\Webfont\Utils;
 
 use Exception;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Common utility functions for the plugin.
  *

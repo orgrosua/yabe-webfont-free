@@ -16,7 +16,7 @@ use WP_Query;
 use Yabe\Webfont\Utils\Common;
 use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Upload;
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 class AdminPage
 {
     public function __construct()

@@ -11,7 +11,7 @@
 declare (strict_types=1);
 namespace Yabe\Webfont\Utils;
 
-use YABE_WEBFONT;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Font utility functions for the plugin.
  *
