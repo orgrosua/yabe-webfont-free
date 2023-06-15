@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,6 +17,7 @@ use WP_REST_Server;
 use Yabe\Webfont\Api\AbstractApi;
 use Yabe\Webfont\Api\ApiInterface;
 use Yabe\Webfont\Plugin;
+use YABE_WEBFONT;
 class License extends AbstractApi implements ApiInterface
 {
     public function __construct()
@@ -43,7 +44,7 @@ class License extends AbstractApi implements ApiInterface
     {
         $payload = $wprestRequest->get_json_params();
         $new_license_key = \sanitize_text_field($payload['license']);
-        $old_license = \get_option(\YABE_WEBFONT_OPTION_NAMESPACE . '_license', ['key' => '', 'opt_in_pre_release' => \false]);
+        $old_license = \get_option(YABE_WEBFONT::WP_OPTION . '_license', ['key' => '', 'opt_in_pre_release' => \false]);
         $plugin_updater = Plugin::get_instance()->plugin_updater;
         $notice = [];
         if ($new_license_key !== $old_license['key']) {
@@ -64,12 +65,12 @@ class License extends AbstractApi implements ApiInterface
                 }
             }
         }
-        \update_option(\YABE_WEBFONT_OPTION_NAMESPACE . '_license', ['key' => $new_license_key, 'opt_in_pre_release' => \false]);
+        \update_option(YABE_WEBFONT::WP_OPTION . '_license', ['key' => $new_license_key, 'opt_in_pre_release' => \false]);
         return new WP_REST_Response(['license' => $this->get_license(), 'notice' => $notice]);
     }
     private function get_license() : array
     {
-        $license = \get_option(\YABE_WEBFONT_OPTION_NAMESPACE . '_license', ['key' => '', 'opt_in_pre_release' => \false]);
+        $license = \get_option(YABE_WEBFONT::WP_OPTION . '_license', ['key' => '', 'opt_in_pre_release' => \false]);
         try {
             $license['is_activated'] = Plugin::get_instance()->plugin_updater->is_activated();
         } catch (\Throwable $throwable) {

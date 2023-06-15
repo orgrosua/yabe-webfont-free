@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -17,10 +17,11 @@ use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Font;
 use Yabe\Webfont\Utils\Notice;
 use Yabe\Webfont\Utils\Upload;
+use YABE_WEBFONT;
 /**
  * Manage the cache of fonts for the frontpage.
  *
- * @author Joshua <id@rosua.org>
+ * @author Joshua Gugun Siagian <suabahasa@gmail.com>
  */
 class Cache
 {
@@ -54,7 +55,7 @@ class Cache
     public function filter_cron_schedules($schedules)
     {
         if (!\array_key_exists('minutely', $schedules)) {
-            $schedules['minutely'] = ['interval' => \MINUTE_IN_SECONDS, 'display' => \__('Once Minutely', 'yabe-webfont')];
+            $schedules['minutely'] = ['interval' => \MINUTE_IN_SECONDS, 'display' => \__('Once Minutely', YABE_WEBFONT::TEXT_DOMAIN)];
         }
         return $schedules;
     }
@@ -75,7 +76,7 @@ class Cache
     public function build_cache()
     {
         $css = self::build_css();
-        $payload = \sprintf("/*\n! %s v%s | %s\n*/\n\n%s", Common::plugin_data('Name'), Plugin::VERSION, \date('Y-m-d H:i:s', \time()), $css);
+        $payload = \sprintf("/*\n! %s v%s | %s\n*/\n\n%s", Common::plugin_data('Name'), YABE_WEBFONT::VERSION, \date('Y-m-d H:i:s', \time()), $css);
         try {
             Common::save_file($payload, self::get_cache_path(self::CSS_CACHE_FILE));
         } catch (\Throwable $throwable) {
@@ -240,6 +241,11 @@ class Cache
      */
     private function purge_cache_plugin()
     {
+        /**
+         * WordPress Object Cache
+         * @see https://developer.wordpress.org/reference/classes/wp_object_cache/
+         */
+        \wp_cache_flush();
         /**
          * WP Rocket
          * @see https://docs.wp-rocket.me/article/92-rocketcleandomain

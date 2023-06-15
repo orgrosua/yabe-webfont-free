@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,7 +11,11 @@
 declare (strict_types=1);
 namespace Yabe\Webfont\Api;
 
+use YABE_WEBFONT;
 class AbstractApi
 {
-    public const API_NAMESPACE = \YABE_WEBFONT_REST_NAMESPACE;
+    /**
+     * @var string
+     */
+    public const API_NAMESPACE = YABE_WEBFONT::REST_NAMESPACE;
 }

@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,10 +13,11 @@ namespace Yabe\Webfont\Core;
 
 use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Debug;
+use YABE_WEBFONT;
 /**
  * Serve the font on the frontpage.
  *
- * @author Joshua <id@rosua.org>
+ * @author Joshua Gugun Siagian <suabahasa@gmail.com>
  */
 final class Frontpage
 {
@@ -34,7 +35,7 @@ final class Frontpage
         }
         Debug::stopwatch()->start(\sprintf('%s::%s', self::class, __FUNCTION__));
         if (\file_exists(\Yabe\Webfont\Core\Cache::get_cache_path(\Yabe\Webfont\Core\Cache::CSS_CACHE_FILE))) {
-            $handle = \YABE_WEBFONT_OPTION_NAMESPACE . '-cache';
+            $handle = YABE_WEBFONT::WP_OPTION . '-cache';
             $version = (string) \filemtime(\Yabe\Webfont\Core\Cache::get_cache_path(\Yabe\Webfont\Core\Cache::CSS_CACHE_FILE));
             if (Config::get('cache.inline_print', \false)) {
                 $css = \file_get_contents(\Yabe\Webfont\Core\Cache::get_cache_path(\Yabe\Webfont\Core\Cache::CSS_CACHE_FILE));

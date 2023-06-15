@@ -863,17 +863,17 @@
         },
         {
             "name": "symfony\/property-info",
-            "version": "v5.4.23",
-            "version_normalized": "5.4.23.0",
+            "version": "v5.4.24",
+            "version_normalized": "5.4.24.0",
             "source": {
                 "type": "git",
                 "url": "https:\/\/github.com\/symfony\/property-info.git",
-                "reference": "ff45ebbfd781eab2571d9d4412d82a9a733fc2b3"
+                "reference": "d43b85b00699b4484964c297575b5c6f9dc5f6e1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https:\/\/api.github.com\/repos\/symfony\/property-info\/zipball\/ff45ebbfd781eab2571d9d4412d82a9a733fc2b3",
-                "reference": "ff45ebbfd781eab2571d9d4412d82a9a733fc2b3",
+                "url": "https:\/\/api.github.com\/repos\/symfony\/property-info\/zipball\/d43b85b00699b4484964c297575b5c6f9dc5f6e1",
+                "reference": "d43b85b00699b4484964c297575b5c6f9dc5f6e1",
                 "shasum": ""
             },
             "require": {
@@ -901,7 +901,7 @@
                 "symfony\/doctrine-bridge": "To use Doctrine metadata",
                 "symfony\/serializer": "To use Serializer metadata"
             },
-            "time": "2023-04-17T14:20:34+00:00",
+            "time": "2023-05-15T20:11:03+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -937,7 +937,7 @@
                 "validator"
             ],
             "support": {
-                "source": "https:\/\/github.com\/symfony\/property-info\/tree\/v5.4.23"
+                "source": "https:\/\/github.com\/symfony\/property-info\/tree\/v5.4.24"
             },
             "funding": [
                 {

@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,16 +11,17 @@
 declare (strict_types=1);
 namespace Yabe\Webfont\Utils;
 
+use YABE_WEBFONT;
 /**
  * Font utility functions for the plugin.
  *
- * @author Joshua <id@rosua.org>
+ * @author Joshua Gugun Siagian <suabahasa@gmail.com>
  */
 class Font
 {
     public static function get_fonts() : array
     {
-        $fonts = \wp_cache_get('get_fonts', \YABE_WEBFONT_OPTION_NAMESPACE);
+        $fonts = \wp_cache_get('get_fonts', YABE_WEBFONT::WP_OPTION);
         if ($fonts === \false) {
             /** @var wpdb $wpdb */
             global $wpdb;
@@ -44,7 +45,7 @@ class Font
                 }
                 $fonts[] = $f;
             }
-            \wp_cache_set('get_fonts', $fonts, \YABE_WEBFONT_OPTION_NAMESPACE);
+            \wp_cache_set('get_fonts', $fonts, YABE_WEBFONT::WP_OPTION);
         }
         return $fonts;
     }

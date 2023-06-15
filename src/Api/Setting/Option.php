@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,6 +16,7 @@ use WP_REST_Response;
 use WP_REST_Server;
 use Yabe\Webfont\Api\AbstractApi;
 use Yabe\Webfont\Api\ApiInterface;
+use YABE_WEBFONT;
 class Option extends AbstractApi implements ApiInterface
 {
     public function __construct()
@@ -32,7 +33,7 @@ class Option extends AbstractApi implements ApiInterface
     }
     public function index(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
-        $options = \json_decode(\get_option(\YABE_WEBFONT_OPTION_NAMESPACE . '_options', '{}'), null, 512, \JSON_THROW_ON_ERROR);
+        $options = \json_decode(\get_option(YABE_WEBFONT::WP_OPTION . '_options', '{}'), null, 512, \JSON_THROW_ON_ERROR);
         $options = \apply_filters('f!yabe/webfont/api/setting/option:index_options', $options);
         return new WP_REST_Response(['options' => $options]);
     }
@@ -44,7 +45,7 @@ class Option extends AbstractApi implements ApiInterface
             $options = (object) $options;
         }
         $options = \apply_filters('f!yabe/webfont/api/setting/option:store_options', $options);
-        \update_option(\YABE_WEBFONT_OPTION_NAMESPACE . '_options', \json_encode($options, \JSON_THROW_ON_ERROR));
+        \update_option(YABE_WEBFONT::WP_OPTION . '_options', \json_encode($options, \JSON_THROW_ON_ERROR));
         \do_action('f!yabe/webfont/api/setting/option:after_store', $options);
         return $this->index($wprestRequest);
     }

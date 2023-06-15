@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,10 +15,10 @@ use WP_REST_Request;
 use WP_REST_Response;
 use WP_REST_Server;
 use wpdb;
-use Yabe\Webfont\Plugin;
 use Yabe\Webfont\Utils\Common;
 use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Upload;
+use YABE_WEBFONT;
 class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\ApiInterface
 {
     public function __construct()
@@ -141,7 +141,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         $sql = $wpdb->prepare($sql, $id);
         $count = (int) $wpdb->get_var($sql);
         if ($count === 0) {
-            return new WP_REST_Response(['message' => \__('Font not found', 'yabe-webfont')], 404, []);
+            return new WP_REST_Response(['message' => \__('Font not found', YABE_WEBFONT::TEXT_DOMAIN)], 404, []);
         }
         $wpdb->update(\sprintf('%syabe_webfont_fonts', $wpdb->prefix), ['status' => $status], ['id' => $id], ['%d'], ['%d']);
         \do_action('a!yabe/webfont/api/font:update_status', $id);
@@ -157,7 +157,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         $sql = $wpdb->prepare($sql, $id);
         $item = $wpdb->get_row($sql);
         if (!$item) {
-            return new WP_REST_Response(['message' => \__('Font not found', 'yabe-webfont')], 404, []);
+            return new WP_REST_Response(['message' => \__('Font not found', YABE_WEBFONT::TEXT_DOMAIN)], 404, []);
         }
         if ($item->deleted_at) {
             $sql = "\n                DELETE FROM {$wpdb->prefix}yabe_webfont_fonts\n                WHERE id = %d\n            ";
@@ -191,7 +191,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         $sql = $wpdb->prepare($sql, $id);
         $count = (int) $wpdb->get_var($sql);
         if ($count === 0) {
-            return new WP_REST_Response(['message' => \__('Font not found', 'yabe-webfont')], 404, []);
+            return new WP_REST_Response(['message' => \__('Font not found', YABE_WEBFONT::TEXT_DOMAIN)], 404, []);
         }
         $wpdb->update(\sprintf('%syabe_webfont_fonts', $wpdb->prefix), ['deleted_at' => null], ['id' => $id], ['%s'], ['%d']);
         \do_action('a!yabe/webfont/api/font:restore', $id);
@@ -208,7 +208,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         $sql = $wpdb->prepare($sql, $id);
         $count = (int) $wpdb->get_var($sql);
         if ($count === 0) {
-            return new WP_REST_Response(['message' => \__('Font not found', 'yabe-webfont')], 404, []);
+            return new WP_REST_Response(['message' => \__('Font not found', YABE_WEBFONT::TEXT_DOMAIN)], 404, []);
         }
         $title = \sanitize_text_field($payload['title']);
         $family = \sanitize_text_field($payload['family']);
@@ -334,7 +334,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         $sql = $wpdb->prepare($sql, $id);
         $count = (int) $wpdb->get_var($sql);
         if ($count === 0) {
-            return new WP_REST_Response(['message' => \__('Font not found', 'yabe-webfont')], 404, []);
+            return new WP_REST_Response(['message' => \__('Font not found', YABE_WEBFONT::TEXT_DOMAIN)], 404, []);
         }
         $title = \sanitize_text_field($payload['title']);
         $status = (bool) $payload['status'];
@@ -408,7 +408,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
             $item['metadata'] = \base64_encode(\json_encode($metadata, \JSON_THROW_ON_ERROR));
             $items[] = $item;
         }
-        $data = ['module_id' => \YABE_WEBFONT_OPTION_NAMESPACE, 'version' => Plugin::VERSION, 'export_time' => \time(), 'site_url' => \site_url(), 'is_bundled' => $is_bundled, 'items' => $items];
+        $data = ['module_id' => YABE_WEBFONT::WP_OPTION, 'version' => YABE_WEBFONT::VERSION, 'export_time' => \time(), 'site_url' => \site_url(), 'is_bundled' => $is_bundled, 'items' => $items];
         return new WP_REST_Response(['data' => $data], 200);
     }
     private function import(WP_REST_Request $wprestRequest) : WP_REST_Response

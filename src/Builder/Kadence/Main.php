@@ -3,7 +3,7 @@
 /*
  * This file is part of the Yabe package.
  *
- * (c) Joshua <id@rosua.org>
+ * (c) Joshua Gugun Siagian <suabahasa@gmail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -12,12 +12,12 @@ declare (strict_types=1);
 namespace Yabe\Webfont\Builder\Kadence;
 
 use Yabe\Webfont\Builder\BuilderInterface;
-use Yabe\Webfont\Plugin;
 use Yabe\Webfont\Utils\Font;
+use YABE_WEBFONT;
 /**
  * Kadence integration.
  *
- * @author Joshua <id@rosua.org>
+ * @author Joshua Gugun Siagian <suabahasa@gmail.com>
  */
 class Main implements BuilderInterface
 {
@@ -63,7 +63,7 @@ class Main implements BuilderInterface
             foreach ($fonts as $font) {
                 $yabe_fonts[] = ['label' => $font['title'], 'value' => $font['family'], 'google' => \false, 'weights' => [['value' => '100', 'label' => 'Thin 100'], ['value' => '200', 'label' => 'Extra-Light 200'], ['value' => '300', 'label' => 'Light 300'], ['value' => '400', 'label' => 'Regular'], ['value' => '500', 'label' => 'Medium 500'], ['value' => '600', 'label' => 'Semi-Bold 600'], ['value' => '700', 'label' => 'Bold 700'], ['value' => '800', 'label' => 'Extra-Bold 800'], ['value' => '900', 'label' => 'Ultra-Bold 900']], 'styles' => [['value' => 'normal', 'label' => 'Normal'], ['value' => 'italic', 'label' => 'Italic']]];
             }
-            \wp_enqueue_script('yabe-webfont-for-kadence-blocks', \plugin_dir_url(__FILE__) . '/assets/script/kadence-blocks.js', ['kadence-blocks-js'], Plugin::VERSION, \true);
+            \wp_enqueue_script('yabe-webfont-for-kadence-blocks', \plugin_dir_url(__FILE__) . '/assets/script/kadence-blocks.js', ['kadence-blocks-js'], YABE_WEBFONT::VERSION, \true);
             \wp_localize_script('yabe-webfont-for-kadence-blocks', 'yabeWebfontKadenceBlocks', ['fonts' => $yabe_fonts]);
         }
     }
