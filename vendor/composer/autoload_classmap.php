@@ -23,7 +23,6 @@ return array(
     'Yabe\\Webfont\\Builder\\Gutenberg\\Main' => $baseDir . '/src/Builder/Gutenberg/Main.php',
     'Yabe\\Webfont\\Builder\\Integration' => $baseDir . '/src/Builder/Integration.php',
     'Yabe\\Webfont\\Builder\\Kadence\\Main' => $baseDir . '/src/Builder/Kadence/Main.php',
-    'Yabe\\Webfont\\Builder\\Pinegrow\\Main' => $baseDir . '/src/Builder/Pinegrow/Main.php',
     'Yabe\\Webfont\\Core\\Cache' => $baseDir . '/src/Core/Cache.php',
     'Yabe\\Webfont\\Core\\Frontpage' => $baseDir . '/src/Core/Frontpage.php',
     'Yabe\\Webfont\\Core\\Runtime' => $baseDir . '/src/Core/Runtime.php',
