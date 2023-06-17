@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c
+class ComposerStaticInit3390530f6e73e16574454408c1d76033
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -122,6 +122,7 @@ class ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c
         'Yabe\\Webfont\\Builder\\Gutenberg\\Main' => __DIR__ . '/../..' . '/src/Builder/Gutenberg/Main.php',
         'Yabe\\Webfont\\Builder\\Integration' => __DIR__ . '/../..' . '/src/Builder/Integration.php',
         'Yabe\\Webfont\\Builder\\Kadence\\Main' => __DIR__ . '/../..' . '/src/Builder/Kadence/Main.php',
+        'Yabe\\Webfont\\Builder\\Pinegrow\\Main' => __DIR__ . '/../..' . '/src/Builder/Pinegrow/Main.php',
         'Yabe\\Webfont\\Core\\Cache' => __DIR__ . '/../..' . '/src/Core/Cache.php',
         'Yabe\\Webfont\\Core\\Frontpage' => __DIR__ . '/../..' . '/src/Core/Frontpage.php',
         'Yabe\\Webfont\\Core\\Runtime' => __DIR__ . '/../..' . '/src/Core/Runtime.php',
@@ -261,9 +262,9 @@ class ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit8e5abdbd8d0626dea052b6004ac25c1c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3390530f6e73e16574454408c1d76033::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3390530f6e73e16574454408c1d76033::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit3390530f6e73e16574454408c1d76033::$classMap;
 
         }, null, ClassLoader::class);
     }

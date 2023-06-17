@@ -9,8 +9,8 @@ $loader = require_once __DIR__.'/autoload.php';
 if (!class_exists('YABE_WEBFONT', false) && !interface_exists('YABE_WEBFONT', false) && !trait_exists('YABE_WEBFONT', false)) {
     spl_autoload_call('_YabeWebfont\YABE_WEBFONT');
 }
-if (!class_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false) && !interface_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false) && !trait_exists('ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c', false)) {
-    spl_autoload_call('_YabeWebfont\ComposerAutoloaderInit8e5abdbd8d0626dea052b6004ac25c1c');
+if (!class_exists('ComposerAutoloaderInit3390530f6e73e16574454408c1d76033', false) && !interface_exists('ComposerAutoloaderInit3390530f6e73e16574454408c1d76033', false) && !trait_exists('ComposerAutoloaderInit3390530f6e73e16574454408c1d76033', false)) {
+    spl_autoload_call('_YabeWebfont\ComposerAutoloaderInit3390530f6e73e16574454408c1d76033');
 }
 
 return $loader;
