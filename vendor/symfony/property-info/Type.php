@@ -120,7 +120,7 @@ class Type
      */
     public function getCollectionKeyType() : ?self
     {
-        \trigger_deprecation('symfony/property-info', '5.3', 'The "%s()" method is deprecated, use "getCollectionKeyTypes()" instead.', __METHOD__);
+        trigger_deprecation('symfony/property-info', '5.3', 'The "%s()" method is deprecated, use "getCollectionKeyTypes()" instead.', __METHOD__);
         $type = $this->getCollectionKeyTypes();
         if (0 === \count($type)) {
             return null;
@@ -150,7 +150,7 @@ class Type
      */
     public function getCollectionValueType() : ?self
     {
-        \trigger_deprecation('symfony/property-info', '5.3', 'The "%s()" method is deprecated, use "getCollectionValueTypes()" instead.', __METHOD__);
+        trigger_deprecation('symfony/property-info', '5.3', 'The "%s()" method is deprecated, use "getCollectionValueTypes()" instead.', __METHOD__);
         return $this->getCollectionValueTypes()[0] ?? null;
     }
     /**

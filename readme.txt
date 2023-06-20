@@ -4,7 +4,7 @@ Donate link: https://ko-fi.com/Q5Q75XSF7
 Tags: custom fonts, google fonts, adobe fonts, gdpr, dsgvo
 Requires at least: 6.0
 Tested up to: 6.2
-Stable tag: 1.0.34
+Stable tag: 1.0.35
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -61,6 +61,8 @@ Visit [our website](https://webfont.yabe.land) for more information.
 = Credits =
 - Image by [Freepik](https://www.flaticon.com/free-icon/windmill_5137991?related_id=5137991) on Flaticon
 
+[youtube https://www.youtube.com/watch?v=uMj0x0ucnOw]
+
 == Changelog ==
 
 Note: The Pro version has a version number with one higher first digit than the Free version. 
@@ -69,6 +71,11 @@ For instance:
 Free version **1**.0.5
 Pro version **2**.0.5
 
+
+= 1.0.35 =
+* **Fix**: Plugin i18n doesn't use string literal for the text domain.
+* **[Pinegrow] Improve**: Ensure compatibility with Pinegrow 1.0.11
+* **[Pinegrow] Improve**: Remove version number from the font URL to avoid duplicate .css file link in the page source code. 
 
 = 1.0.34 =
 * **New**: [Pinegrow](https://pinegrow.com/wordpress) integration **[Pro]** 

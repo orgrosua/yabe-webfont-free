@@ -41,11 +41,11 @@ class AdminPage
     }
     public static function add_redirect_submenu_page($root_slug)
     {
-        \add_submenu_page($root_slug, \__('Yabe Webfont', YABE_WEBFONT::TEXT_DOMAIN), \__('Yabe Webfont', YABE_WEBFONT::TEXT_DOMAIN), 'manage_options', 'yabe-webfont-builder-redirect', static fn() => self::redirect_to_page());
+        \add_submenu_page($root_slug, \__('Yabe Webfont', 'yabe-webfont'), \__('Yabe Webfont', 'yabe-webfont'), 'manage_options', 'yabe-webfont-builder-redirect', static fn() => self::redirect_to_page());
     }
     public function add_admin_menu()
     {
-        $hook = \add_theme_page(\__('Yabe Webfont', YABE_WEBFONT::TEXT_DOMAIN), \__('Yabe Webfont', YABE_WEBFONT::TEXT_DOMAIN), 'manage_options', YABE_WEBFONT::WP_OPTION, fn() => $this->render());
+        $hook = \add_theme_page(\__('Yabe Webfont', 'yabe-webfont'), \__('Yabe Webfont', 'yabe-webfont'), 'manage_options', YABE_WEBFONT::WP_OPTION, fn() => $this->render());
         \add_action('load-' . $hook, fn() => $this->init_hooks());
     }
     private function render()
@@ -63,8 +63,8 @@ class AdminPage
         \wp_enqueue_media();
         \wp_enqueue_style(YABE_WEBFONT::WP_OPTION . '-app', \plugin_dir_url(YABE_WEBFONT::FILE) . 'build/app.css', [], \filemtime(\plugin_dir_path(YABE_WEBFONT::FILE) . 'build/app.css'));
         \wp_enqueue_script(YABE_WEBFONT::WP_OPTION . '-app', \plugin_dir_url(YABE_WEBFONT::FILE) . 'build/app.js', [], \filemtime(\plugin_dir_path(YABE_WEBFONT::FILE) . 'build/app.js'), \true);
-        \wp_set_script_translations(YABE_WEBFONT::WP_OPTION . '-app', YABE_WEBFONT::TEXT_DOMAIN);
-        \wp_localize_script(YABE_WEBFONT::WP_OPTION . '-app', 'yabeWebfont', ['_version' => YABE_WEBFONT::VERSION, '_wpnonce' => \wp_create_nonce(YABE_WEBFONT::WP_OPTION), 'option_namespace' => YABE_WEBFONT::WP_OPTION, 'text_domain' => YABE_WEBFONT::TEXT_DOMAIN, 'web_history' => self::get_page_url(), 'rest_api' => ['nonce' => \wp_create_nonce('wp_rest'), 'root' => \esc_url_raw(\rest_url()), 'namespace' => YABE_WEBFONT::REST_NAMESPACE, 'url' => \esc_url_raw(\rest_url(YABE_WEBFONT::REST_NAMESPACE))], 'assets' => ['url' => \plugin_dir_url(YABE_WEBFONT::FILE)], 'lite_edition' => !\class_exists(PluginUpdater::class), 'hostedWakufont' => \rtrim(\apply_filters('f!yabe/webfont/font:wakufont_self_hosted', YABE_WEBFONT::HOSTED_WAKUFONT), '/')]);
+        \wp_set_script_translations(YABE_WEBFONT::WP_OPTION . '-app', 'yabe-webfont');
+        \wp_localize_script(YABE_WEBFONT::WP_OPTION . '-app', 'yabeWebfont', ['_version' => YABE_WEBFONT::VERSION, '_wpnonce' => \wp_create_nonce(YABE_WEBFONT::WP_OPTION), 'option_namespace' => YABE_WEBFONT::WP_OPTION, 'text_domain' => 'yabe-webfont', 'web_history' => self::get_page_url(), 'rest_api' => ['nonce' => \wp_create_nonce('wp_rest'), 'root' => \esc_url_raw(\rest_url()), 'namespace' => YABE_WEBFONT::REST_NAMESPACE, 'url' => \esc_url_raw(\rest_url(YABE_WEBFONT::REST_NAMESPACE))], 'assets' => ['url' => \plugin_dir_url(YABE_WEBFONT::FILE)], 'lite_edition' => !\class_exists(PluginUpdater::class), 'hostedWakufont' => \rtrim(\apply_filters('f!yabe/webfont/font:wakufont_self_hosted', YABE_WEBFONT::HOSTED_WAKUFONT), '/')]);
     }
     private function ajax_query_attachments_args(array $query) : array
     {
@@ -86,6 +86,6 @@ class AdminPage
     }
     private function admin_footer_text($text) : string
     {
-        return \sprintf(\__('Thank you for using <b>Yabe Webfont</b>! Join us on the <a href="%s" target="_blank">Facebook Group</a>.', YABE_WEBFONT::TEXT_DOMAIN), 'https://www.facebook.com/groups/1142662969627943');
+        return \sprintf(\__('Thank you for using <b>Yabe Webfont</b>! Join us on the <a href="%s" target="_blank">Facebook Group</a>.', 'yabe-webfont'), 'https://www.facebook.com/groups/1142662969627943');
     }
 }

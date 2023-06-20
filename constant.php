@@ -25,11 +25,11 @@ class YABE_WEBFONT
     /**
      * @var string
      */
-    public const VERSION = '1.0.34';
+    public const VERSION = '1.0.35';
     /**
      * @var int
      */
-    public const VERSION_ID = 10034;
+    public const VERSION_ID = 10035;
     /**
      * @var int
      */
@@ -41,7 +41,7 @@ class YABE_WEBFONT
     /**
      * @var int
      */
-    public const RELEASE_VERSION = 34;
+    public const RELEASE_VERSION = 35;
     /**
      * @var string
      */
@@ -55,6 +55,9 @@ class YABE_WEBFONT
      */
     public const DB_TABLE_PREFIX = 'yabe_webfont';
     /**
+     * The text domain should use the literal string 'yabe-webfont' as the text domain.
+     * This constant is used for reference only and should not be used as the actual text domain.
+     * 
      * @var string
      */
     public const TEXT_DOMAIN = 'yabe-webfont';

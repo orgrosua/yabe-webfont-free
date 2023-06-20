@@ -227,7 +227,7 @@ class ReflectionExtractor implements PropertyListExtractorInterface, PropertyTyp
         $allowMagicCall = (bool) ($magicMethods & self::ALLOW_MAGIC_CALL);
         $allowMagicGet = (bool) ($magicMethods & self::ALLOW_MAGIC_GET);
         if (isset($context['enable_magic_call_extraction'])) {
-            \trigger_deprecation('symfony/property-info', '5.2', 'Using the "enable_magic_call_extraction" context option in "%s()" is deprecated. Use "enable_magic_methods_extraction" instead.', __METHOD__);
+            trigger_deprecation('symfony/property-info', '5.2', 'Using the "enable_magic_call_extraction" context option in "%s()" is deprecated. Use "enable_magic_methods_extraction" instead.', __METHOD__);
             $allowMagicCall = $context['enable_magic_call_extraction'] ?? \false;
         }
         $hasProperty = $reflClass->hasProperty($property);
@@ -272,7 +272,7 @@ class ReflectionExtractor implements PropertyListExtractorInterface, PropertyTyp
         $allowMagicCall = (bool) ($magicMethods & self::ALLOW_MAGIC_CALL);
         $allowMagicSet = (bool) ($magicMethods & self::ALLOW_MAGIC_SET);
         if (isset($context['enable_magic_call_extraction'])) {
-            \trigger_deprecation('symfony/property-info', '5.2', 'Using the "enable_magic_call_extraction" context option in "%s()" is deprecated. Use "enable_magic_methods_extraction" instead.', __METHOD__);
+            trigger_deprecation('symfony/property-info', '5.2', 'Using the "enable_magic_call_extraction" context option in "%s()" is deprecated. Use "enable_magic_methods_extraction" instead.', __METHOD__);
             $allowMagicCall = $context['enable_magic_call_extraction'] ?? \false;
         }
         $allowConstruct = $context['enable_constructor_extraction'] ?? $this->enableConstructorExtraction;
