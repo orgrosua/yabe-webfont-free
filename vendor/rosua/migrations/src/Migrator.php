@@ -25,10 +25,10 @@ class Migrator
     }
     public function registerCommands() : void
     {
-        if (!\class_exists('_YabeWebfont\\WP_CLI')) {
+        if (!\class_exists('WP_CLI')) {
             return;
         }
-        \_YabeWebfont\WP_CLI::add_command($this->commandNamespace, Command::class);
+        \WP_CLI::add_command($this->commandNamespace, Command::class);
     }
     public function install() : void
     {

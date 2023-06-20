@@ -29,7 +29,6 @@ if (!function_exists('humbug_phpscoper_expose_class')) {
     }
 }
 humbug_phpscoper_expose_class('YABE_WEBFONT', '_YabeWebfont\YABE_WEBFONT');
-humbug_phpscoper_expose_class('ComposerAutoloaderInitb5ad051644c126a20796253414457dd5', '_YabeWebfont\ComposerAutoloaderInitb5ad051644c126a20796253414457dd5');
 humbug_phpscoper_expose_class('Normalizer', '_YabeWebfont\Normalizer');
 humbug_phpscoper_expose_class('Attribute', '_YabeWebfont\Attribute');
 humbug_phpscoper_expose_class('PhpToken', '_YabeWebfont\PhpToken');
@@ -103,19 +102,9 @@ if (!function_exists('mb_substr_count')) { function mb_substr_count() { return \
 if (!function_exists('normalizer_is_normalized')) { function normalizer_is_normalized() { return \_YabeWebfont\normalizer_is_normalized(...func_get_args()); } }
 if (!function_exists('normalizer_normalize')) { function normalizer_normalize() { return \_YabeWebfont\normalizer_normalize(...func_get_args()); } }
 if (!function_exists('preg_last_error_msg')) { function preg_last_error_msg() { return \_YabeWebfont\preg_last_error_msg(...func_get_args()); } }
-if (!function_exists('rocket_clean_domain')) { function rocket_clean_domain() { return \_YabeWebfont\rocket_clean_domain(...func_get_args()); } }
-if (!function_exists('step_1')) { function step_1() { return \_YabeWebfont\step_1(...func_get_args()); } }
-if (!function_exists('step_2')) { function step_2() { return \_YabeWebfont\step_2(...func_get_args()); } }
-if (!function_exists('step_3')) { function step_3() { return \_YabeWebfont\step_3(...func_get_args()); } }
-if (!function_exists('step_4')) { function step_4() { return \_YabeWebfont\step_4(...func_get_args()); } }
-if (!function_exists('step_5')) { function step_5() { return \_YabeWebfont\step_5(...func_get_args()); } }
-if (!function_exists('step_6')) { function step_6() { return \_YabeWebfont\step_6(...func_get_args()); } }
 if (!function_exists('str_contains')) { function str_contains() { return \_YabeWebfont\str_contains(...func_get_args()); } }
 if (!function_exists('str_ends_with')) { function str_ends_with() { return \_YabeWebfont\str_ends_with(...func_get_args()); } }
 if (!function_exists('str_starts_with')) { function str_starts_with() { return \_YabeWebfont\str_starts_with(...func_get_args()); } }
 if (!function_exists('trigger_deprecation')) { function trigger_deprecation() { return \_YabeWebfont\trigger_deprecation(...func_get_args()); } }
-if (!function_exists('w3tc_flush_all')) { function w3tc_flush_all() { return \_YabeWebfont\w3tc_flush_all(...func_get_args()); } }
-if (!function_exists('wp_cache_clear_cache')) { function wp_cache_clear_cache() { return \_YabeWebfont\wp_cache_clear_cache(...func_get_args()); } }
-if (!function_exists('wpfc_clear_all_cache')) { function wpfc_clear_all_cache() { return \_YabeWebfont\wpfc_clear_all_cache(...func_get_args()); } }
 
 return $loader;

@@ -24,10 +24,10 @@ namespace _YabeWebfont;
 
 use _YabeWebfont\Rosua\Migrations\Migrator;
 \defined('ABSPATH') || exit;
-\define('ROSUA_MIGRATIONS_FILE', __FILE__);
+\define('_YabeWebfont\\ROSUA_MIGRATIONS_FILE', __FILE__);
 require_once __DIR__ . '/vendor/autoload.php';
 $migrator = new Migrator(['tableName' => 'rosua_migrations', 'namespace' => 'RosuaMigrations', 'directory' => 'migrations', 'basePath' => __DIR__]);
-\register_activation_hook(\ROSUA_MIGRATIONS_FILE, function () use($migrator) {
+\register_activation_hook(\_YabeWebfont\ROSUA_MIGRATIONS_FILE, function () use($migrator) {
     $migrator->install();
 });
 $migrator->boot();

@@ -30,7 +30,7 @@ final class Frontpage
     }
     public static function enqueue_css_cache()
     {
-        if (\defined('YABE_WEBFONT_CSS_CACHE_WAS_LOADED')) {
+        if (\defined('_YabeWebfont\\YABE_WEBFONT_CSS_CACHE_WAS_LOADED')) {
             return;
         }
         Debug::stopwatch()->start(\sprintf('%s::%s', self::class, __FUNCTION__));
@@ -48,7 +48,7 @@ final class Frontpage
                 \wp_print_styles($handle);
             }
         }
-        \define('YABE_WEBFONT_CSS_CACHE_WAS_LOADED', \true);
+        \define('_YabeWebfont\\YABE_WEBFONT_CSS_CACHE_WAS_LOADED', \true);
         Debug::stopwatch()->stop(\sprintf('%s::%s', self::class, __FUNCTION__));
     }
     /**
@@ -64,7 +64,7 @@ final class Frontpage
      */
     private function preload()
     {
-        if (\defined('YABE_WEBFONT_PRELOAD_HTML_WAS_LOADED')) {
+        if (\defined('_YabeWebfont\\YABE_WEBFONT_PRELOAD_HTML_WAS_LOADED')) {
             return;
         }
         Debug::stopwatch()->start(\sprintf('%s::%s', self::class, __FUNCTION__));
@@ -74,7 +74,7 @@ final class Frontpage
                 echo $preload_html;
             }
         }
-        \define('YABE_WEBFONT_PRELOAD_HTML_WAS_LOADED', \true);
+        \define('_YabeWebfont\\YABE_WEBFONT_PRELOAD_HTML_WAS_LOADED', \true);
         Debug::stopwatch()->stop(\sprintf('%s::%s', self::class, __FUNCTION__));
     }
 }

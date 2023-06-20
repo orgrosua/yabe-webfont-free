@@ -72,7 +72,7 @@ class Normalizer
                 $K = \true;
                 break;
             default:
-                if (\defined('Normalizer::NONE') && \Normalizer::NONE == $form) {
+                if (\defined('_YabeWebfont\\Normalizer::NONE') && \Normalizer::NONE == $form) {
                     return $s;
                 }
                 if (80000 > \PHP_VERSION_ID) {

@@ -249,29 +249,29 @@ class Cache
          * WP Rocket
          * @see https://docs.wp-rocket.me/article/92-rocketcleandomain
          */
-        if (\function_exists('_YabeWebfont\\rocket_clean_domain')) {
-            \_YabeWebfont\rocket_clean_domain();
+        if (\function_exists('rocket_clean_domain')) {
+            \rocket_clean_domain();
         }
         /**
          * WP Super Cache
          * @see https://github.com/Automattic/wp-super-cache/blob/a0872032b1b3fc6847f490eadfabf74c12ad0135/wp-cache-phase2.php#L3013
          */
-        if (\function_exists('_YabeWebfont\\wp_cache_clear_cache')) {
-            \_YabeWebfont\wp_cache_clear_cache();
+        if (\function_exists('wp_cache_clear_cache')) {
+            \wp_cache_clear_cache();
         }
         /**
          * W3 Total Cache
          * @see https://github.com/BoldGrid/w3-total-cache/blob/3a094493064ea60d727b3389dee813639860ef49/w3-total-cache-api.php#L259
          */
-        if (\function_exists('_YabeWebfont\\w3tc_flush_all')) {
-            \_YabeWebfont\w3tc_flush_all();
+        if (\function_exists('w3tc_flush_all')) {
+            \w3tc_flush_all();
         }
         /**
          * WP Fastest Cache
          * @see https://www.wpfastestcache.com/tutorial/delete-the-cache-by-calling-the-function/
          */
-        if (\function_exists('_YabeWebfont\\wpfc_clear_all_cache')) {
-            \_YabeWebfont\wpfc_clear_all_cache(\true);
+        if (\function_exists('wpfc_clear_all_cache')) {
+            \wpfc_clear_all_cache(\true);
         }
         /**
          * LiteSpeed Cache

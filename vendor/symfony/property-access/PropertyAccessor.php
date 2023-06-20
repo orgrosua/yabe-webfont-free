@@ -87,20 +87,20 @@ class PropertyAccessor implements PropertyAccessorInterface
     public function __construct($magicMethods = self::MAGIC_GET | self::MAGIC_SET, $throw = self::THROW_ON_INVALID_PROPERTY_PATH, CacheItemPoolInterface $cacheItemPool = null, $readInfoExtractor = null, $writeInfoExtractor = null)
     {
         if (\is_bool($magicMethods)) {
-            trigger_deprecation('symfony/property-access', '5.2', 'Passing a boolean as the first argument to "%s()" is deprecated. Pass a combination of bitwise flags instead (i.e an integer).', __METHOD__);
+            \trigger_deprecation('symfony/property-access', '5.2', 'Passing a boolean as the first argument to "%s()" is deprecated. Pass a combination of bitwise flags instead (i.e an integer).', __METHOD__);
             $magicMethods = ($magicMethods ? self::MAGIC_CALL : 0) | self::MAGIC_GET | self::MAGIC_SET;
         } elseif (!\is_int($magicMethods)) {
             throw new \TypeError(\sprintf('Argument 1 passed to "%s()" must be an integer, "%s" given.', __METHOD__, \get_debug_type($readInfoExtractor)));
         }
         if (\is_bool($throw)) {
-            trigger_deprecation('symfony/property-access', '5.3', 'Passing a boolean as the second argument to "%s()" is deprecated. Pass a combination of bitwise flags instead (i.e an integer).', __METHOD__);
+            \trigger_deprecation('symfony/property-access', '5.3', 'Passing a boolean as the second argument to "%s()" is deprecated. Pass a combination of bitwise flags instead (i.e an integer).', __METHOD__);
             $throw = $throw ? self::THROW_ON_INVALID_INDEX : self::DO_NOT_THROW;
             if (!\is_bool($readInfoExtractor)) {
                 $throw |= self::THROW_ON_INVALID_PROPERTY_PATH;
             }
         }
         if (\is_bool($readInfoExtractor)) {
-            trigger_deprecation('symfony/property-access', '5.3', 'Passing a boolean as the fourth argument to "%s()" is deprecated. Pass a combination of bitwise flags as the second argument instead (i.e an integer).', __METHOD__);
+            \trigger_deprecation('symfony/property-access', '5.3', 'Passing a boolean as the fourth argument to "%s()" is deprecated. Pass a combination of bitwise flags as the second argument instead (i.e an integer).', __METHOD__);
             if ($readInfoExtractor) {
                 $throw |= self::THROW_ON_INVALID_PROPERTY_PATH;
             }
