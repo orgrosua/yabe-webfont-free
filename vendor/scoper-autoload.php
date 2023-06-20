@@ -105,6 +105,5 @@ if (!function_exists('preg_last_error_msg')) { function preg_last_error_msg() { 
 if (!function_exists('str_contains')) { function str_contains() { return \_YabeWebfont\str_contains(...func_get_args()); } }
 if (!function_exists('str_ends_with')) { function str_ends_with() { return \_YabeWebfont\str_ends_with(...func_get_args()); } }
 if (!function_exists('str_starts_with')) { function str_starts_with() { return \_YabeWebfont\str_starts_with(...func_get_args()); } }
-if (!function_exists('trigger_deprecation')) { function trigger_deprecation() { return \_YabeWebfont\trigger_deprecation(...func_get_args()); } }
 
 return $loader;

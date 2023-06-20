@@ -25,11 +25,11 @@ class YABE_WEBFONT
     /**
      * @var string
      */
-    public const VERSION = '1.0.36';
+    public const VERSION = '1.0.37';
     /**
      * @var int
      */
-    public const VERSION_ID = 10036;
+    public const VERSION_ID = 10037;
     /**
      * @var int
      */
@@ -41,7 +41,7 @@ class YABE_WEBFONT
     /**
      * @var int
      */
-    public const RELEASE_VERSION = 36;
+    public const RELEASE_VERSION = 37;
     /**
      * @var string
      */

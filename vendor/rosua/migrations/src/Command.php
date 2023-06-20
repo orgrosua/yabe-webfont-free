@@ -4,7 +4,7 @@ declare (strict_types=1);
 namespace _YabeWebfont\Rosua\Migrations;
 
 use _YabeWebfont\WP_CLI_Command;
-use function _YabeWebfont\WP_CLI\Utils\format_items;
+use function WP_CLI\Utils\format_items;
 /**
  * Rosua Migration Command
  */
