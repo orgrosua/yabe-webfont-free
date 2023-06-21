@@ -390,7 +390,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "_YabeWebfont\\Symfony\\Polyfill\\Ctype\\": ""
+                    "Symfony\\Polyfill\\Ctype\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -472,7 +472,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "_YabeWebfont\\Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                    "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -556,7 +556,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "_YabeWebfont\\Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"
@@ -646,7 +646,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "_YabeWebfont\\Symfony\\Polyfill\\Mbstring\\": ""
+                    "Symfony\\Polyfill\\Mbstring\\": ""
                 }
             },
             "notification-url": "https:\/\/packagist.org\/downloads\/",
@@ -726,7 +726,7 @@
                     "bootstrap.php"
                 ],
                 "psr-4": {
-                    "_YabeWebfont\\Symfony\\Polyfill\\Php80\\": ""
+                    "Symfony\\Polyfill\\Php80\\": ""
                 },
                 "classmap": [
                     "Resources\/stubs"

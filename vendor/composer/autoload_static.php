@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit7af963c208bee77414c8dd2a06772197
+class ComposerStaticIniteaae55ee2bc289c602386722405fe995
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
@@ -20,11 +20,6 @@ class ComposerStaticInit7af963c208bee77414c8dd2a06772197
     public static $prefixLengthsPsr4 = array (
         '_' => 
         array (
-            '_YabeWebfont\\Symfony\\Polyfill\\Php80\\' => 36,
-            '_YabeWebfont\\Symfony\\Polyfill\\Mbstring\\' => 39,
-            '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Normalizer\\' => 46,
-            '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Grapheme\\' => 44,
-            '_YabeWebfont\\Symfony\\Polyfill\\Ctype\\' => 36,
             '_YabeWebfont\\Symfony\\Contracts\\Service\\' => 39,
             '_YabeWebfont\\Symfony\\Component\\String\\' => 38,
             '_YabeWebfont\\Symfony\\Component\\Stopwatch\\' => 41,
@@ -39,29 +34,17 @@ class ComposerStaticInit7af963c208bee77414c8dd2a06772197
         array (
             'Yabe\\Webfont\\' => 13,
         ),
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php80\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Polyfill\\Intl\\Normalizer\\' => 33,
+            'Symfony\\Polyfill\\Intl\\Grapheme\\' => 31,
+            'Symfony\\Polyfill\\Ctype\\' => 23,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        '_YabeWebfont\\Symfony\\Polyfill\\Php80\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
-        ),
-        '_YabeWebfont\\Symfony\\Polyfill\\Mbstring\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
-        ),
-        '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Normalizer\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
-        ),
-        '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Grapheme\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
-        ),
-        '_YabeWebfont\\Symfony\\Polyfill\\Ctype\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
-        ),
         '_YabeWebfont\\Symfony\\Contracts\\Service\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/service-contracts',
@@ -102,10 +85,36 @@ class ComposerStaticInit7af963c208bee77414c8dd2a06772197
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
+        'Symfony\\Polyfill\\Php80\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Polyfill\\Intl\\Normalizer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer',
+        ),
+        'Symfony\\Polyfill\\Intl\\Grapheme\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme',
+        ),
+        'Symfony\\Polyfill\\Ctype\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+        ),
     );
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
+        'Symfony\\Polyfill\\Intl\\Grapheme\\Grapheme' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/Grapheme.php',
+        'Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
+        'Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
+        'Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
+        'Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         'Yabe\\Webfont\\Admin\\AdminPage' => __DIR__ . '/../..' . '/src/Admin/AdminPage.php',
         'Yabe\\Webfont\\Api\\AbstractApi' => __DIR__ . '/../..' . '/src/Api/AbstractApi.php',
         'Yabe\\Webfont\\Api\\ApiInterface' => __DIR__ . '/../..' . '/src/Api/ApiInterface.php',
@@ -248,12 +257,6 @@ class ComposerStaticInit7af963c208bee77414c8dd2a06772197
         '_YabeWebfont\\Symfony\\Contracts\\Service\\ServiceSubscriberInterface' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberInterface.php',
         '_YabeWebfont\\Symfony\\Contracts\\Service\\ServiceSubscriberTrait' => __DIR__ . '/..' . '/symfony/service-contracts/ServiceSubscriberTrait.php',
         '_YabeWebfont\\Symfony\\Contracts\\Service\\Test\\ServiceLocatorTest' => __DIR__ . '/..' . '/symfony/service-contracts/Test/ServiceLocatorTest.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Ctype\\Ctype' => __DIR__ . '/..' . '/symfony/polyfill-ctype/Ctype.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Grapheme\\Grapheme' => __DIR__ . '/..' . '/symfony/polyfill-intl-grapheme/Grapheme.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Intl\\Normalizer\\Normalizer' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/Normalizer.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Mbstring\\Mbstring' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/Mbstring.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Php80\\Php80' => __DIR__ . '/..' . '/symfony/polyfill-php80/Php80.php',
-        '_YabeWebfont\\Symfony\\Polyfill\\Php80\\PhpToken' => __DIR__ . '/..' . '/symfony/polyfill-php80/PhpToken.php',
         '_YabeWebfont\\UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         '_YabeWebfont\\ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
@@ -261,9 +264,9 @@ class ComposerStaticInit7af963c208bee77414c8dd2a06772197
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit7af963c208bee77414c8dd2a06772197::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit7af963c208bee77414c8dd2a06772197::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit7af963c208bee77414c8dd2a06772197::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticIniteaae55ee2bc289c602386722405fe995::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticIniteaae55ee2bc289c602386722405fe995::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticIniteaae55ee2bc289c602386722405fe995::$classMap;
 
         }, null, ClassLoader::class);
     }
