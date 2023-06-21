@@ -85,11 +85,7 @@ class Main implements BuilderInterface
     public function generateblocks_typography_font_family_list($gb_fonts)
     {
         $fonts = Font::get_fonts();
-        $yabe_fonts = \array_map(static fn($f) => [
-            'label' => $f['title'],
-            // 'value' => Font::css_variable($f['family']),
-            'value' => $f['family'],
-        ], $fonts);
+        $yabe_fonts = \array_map(static fn($f) => ['label' => $f['title'], 'value' => $f['family']], $fonts);
         return \array_merge([['label' => 'Yabe Webfont', 'options' => $yabe_fonts]], \is_array($gb_fonts) ? $gb_fonts : \iterator_to_array($gb_fonts));
     }
 }
