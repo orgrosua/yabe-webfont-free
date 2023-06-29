@@ -70,6 +70,8 @@ class Upload
             return $temp_file;
         }
         $file = ['name' => $file_name, 'type' => $mime_type, 'tmp_name' => $temp_file, 'size' => \filesize($temp_file)];
+        // changing the directory
+        \add_filter('upload_dir', [self::class, 'wpse_custom_upload_dir']);
         $sideload = \wp_handle_sideload($file, ['test_form' => \false, 'test_size' => \false]);
         if (!empty($sideload['error'])) {
             // you may return error message if you want
@@ -77,6 +79,8 @@ class Upload
         }
         // it is time to add our uploaded image into WordPress media library
         $attachment_id = \wp_insert_attachment(['guid' => $sideload['url'], 'post_mime_type' => $sideload['type'], 'post_title' => \basename($sideload['file']), 'post_content' => '', 'post_status' => 'inherit'], $sideload['file']);
+        // remove so it doesn't apply to all uploads
+        \remove_filter('upload_dir', [self::class, 'wpse_custom_upload_dir']);
         if (\is_wp_error($attachment_id)) {
             return $attachment_id;
         }
@@ -195,5 +199,13 @@ class Upload
             }
         }
         return $font_files;
+    }
+    public static function wpse_custom_upload_dir($dir_data)
+    {
+        $custom_dir = 'yabe-webfont/fonts';
+        $dir_data['path'] = $dir_data['basedir'] . '/' . $custom_dir;
+        $dir_data['subdir'] = '/' . $custom_dir;
+        $dir_data['url'] = $dir_data['baseurl'] . '/' . $custom_dir;
+        return $dir_data;
     }
 }
