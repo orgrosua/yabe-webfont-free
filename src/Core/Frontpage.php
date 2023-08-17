@@ -27,6 +27,7 @@ final class Frontpage
          * @see wp-includes\default-filters.php for the priority.
          */
         \add_action('wp_head', fn() => $this->append_header(), 4);
+        \add_action('wp_enqueue_scripts', fn() => $this->disable_user_google_fonts(), 1000001);
     }
     public static function enqueue_css_cache()
     {
@@ -76,5 +77,22 @@ final class Frontpage
         }
         \define('_YabeWebfont\\YABE_WEBFONT_PRELOAD_HTML_WAS_LOADED', \true);
         Debug::stopwatch()->stop(\sprintf('%s::%s', self::class, __FUNCTION__));
+    }
+    /**
+     * Scan and disable Google Fonts API that loaded manually by the theme or plugin through `wp_enqueue_style` function.
+     */
+    private function disable_user_google_fonts()
+    {
+        $is_disable = Config::get('misc.disable_user_google_fonts', \false);
+        if (!$is_disable) {
+            return;
+        }
+        global $wp_styles;
+        foreach ($wp_styles->queue as $q) {
+            if ($wp_styles->registered[$q]->src && \strpos($wp_styles->registered[$q]->src, 'fonts.googleapis.com') !== \false) {
+                \wp_dequeue_style($q);
+                \wp_deregister_style($q);
+            }
+        }
     }
 }
