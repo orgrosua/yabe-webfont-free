@@ -15,7 +15,9 @@ use WP_Theme_JSON_Data;
 use Yabe\Webfont\Builder\BuilderInterface;
 use Yabe\Webfont\Core\Cache;
 use Yabe\Webfont\Core\Frontpage;
+use Yabe\Webfont\Utils\Config;
 use Yabe\Webfont\Utils\Font;
+use _YabeWebfont\YABE_WEBFONT;
 /**
  * Gutenberg integration.
  *
@@ -35,8 +37,9 @@ class Main implements BuilderInterface
         \add_filter('wp_theme_json_data_user', fn($theme_json) => $this->filter_theme_json_data_user($theme_json), 1000001);
         \add_filter('f!yabe/webfont/core/cache:build_css.append_content', fn($css, $rows) => $this->filter_append_build_css_content($css, $rows), 1000001, 2);
         \add_filter('f!yabe/webfont/core/cache:build_css.append_content', fn($css, $rows) => $this->filter_ensure_block_editor($css, $rows), 1000001, 2);
-        \add_action('enqueue_block_editor_assets', fn() => $this->enqueue_block_editor_assets(), 1000001);
-        \add_action('after_setup_theme', fn() => $this->after_setup_theme(), 1000001);
+        // add_action('enqueue_block_editor_assets', fn () => $this->enqueue_block_editor_assets(), 1_000_001);
+        // add_action('after_setup_theme', fn () => $this->after_setup_theme(), 1_000_001);
+        \add_action('enqueue_block_assets', fn() => $this->enqueue_block_assets(), 1000001);
     }
     public function get_name() : string
     {
@@ -87,7 +90,13 @@ class Main implements BuilderInterface
     {
         $screen = \get_current_screen();
         if (\is_admin() && $screen->is_block_editor()) {
-            \add_action('admin_head', static fn() => Frontpage::enqueue_css_cache(), 1000001);
+            \add_action('admin_head', static function () {
+                \add_filter('f!yabe/webfont/api/setting/option:index_options', static function ($options) {
+                    Config::propertyAccessor()->setValue($options, 'cache.inline_print', \false);
+                    return $options;
+                }, 1000001);
+                Frontpage::enqueue_css_cache();
+            }, 1000001);
         }
     }
     public function after_setup_theme()
@@ -95,6 +104,16 @@ class Main implements BuilderInterface
         // Add support for editor styles.
         \add_theme_support('editor-styles');
         \add_editor_style(Cache::get_cache_url(Cache::CSS_CACHE_FILE));
+    }
+    public function enqueue_block_assets()
+    {
+        if (\is_admin()) {
+            if (\file_exists(Cache::get_cache_path(Cache::CSS_CACHE_FILE))) {
+                $handle = YABE_WEBFONT::WP_OPTION . '-cache';
+                $version = (string) \filemtime(Cache::get_cache_path(Cache::CSS_CACHE_FILE));
+                \wp_enqueue_style($handle, Cache::get_cache_url(Cache::CSS_CACHE_FILE), [], $version);
+            }
+        }
     }
     /**
      * ensure the css file is loaded to the block editor, template editor, or site editor
