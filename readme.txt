@@ -4,7 +4,7 @@ Donate link: https://ko-fi.com/Q5Q75XSF7
 Tags: custom fonts, google fonts, adobe fonts, gdpr, dsgvo
 Requires at least: 6.0
 Tested up to: 6.3
-Stable tag: 1.0.54
+Stable tag: 1.0.55
 Requires PHP: 7.4
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -28,6 +28,7 @@ Yabe Webfont is packed full of features designed to streamline your workflow. So
 * **Fine-tuning**: Complete control over your fonts and typography. On 90% of use cases, the default one is good to go.
 * **Lightweight and blazingly fast**: The font management system uses WordPress REST API and a modern JavaScript framework for an instant, responsive user experience. The front page cache ensures fast loading and reduces database queries.
 * **Variable Fonts support**: The format allows a single font file to contain multiple stylistic variations.
+* **Multisite support**: The plugin is compatible with WordPress Multisite (Activate the plugin on the site level).
 
 ### SEAMLESS INTEGRATION
 
@@ -74,6 +75,11 @@ For instance:
 Free version **1**.0.5
 Pro version **2**.0.5
 
+
+= 1.0.55 =
+* **New**: Added migration tool to import data from other font plugins
+* **New**: [Custom Fonts - Bricks] migration tool.
+* **New**: [Font Hero - Dplugins] migration tool.
 
 = 1.0.54 =
 * **[Builderius] Improve**: Ensure compatibility with the latest Builderius version.

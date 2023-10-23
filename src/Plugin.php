@@ -143,6 +143,7 @@ final class Plugin
         \do_action('a!yabe/webfont/plugins:activate_plugin_start');
         \update_option(YABE_WEBFONT::WP_OPTION . '_version', YABE_WEBFONT::VERSION);
         $this->maybe_embedded_license();
+        \delete_transient('yabe_webfont_scanned_apis_' . YABE_WEBFONT::VERSION);
         \do_action('a!yabe/webfont/plugins:activate_plugin_end');
     }
     /**
