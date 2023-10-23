@@ -50,7 +50,7 @@ class DpluginsFontHero extends AbstractApi implements ApiInterface
      */
     public function import_fonts(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
-        if (!\defined('_YabeWebfont\\DP_FH_BASE')) {
+        if (!\defined('DP_FH_BASE')) {
             return new WP_REST_Response(['message' => 'Font Hero plugin is not activated'], 404);
         }
         /** @var wpdb $wpdb */
@@ -101,7 +101,7 @@ class DpluginsFontHero extends AbstractApi implements ApiInterface
     }
     public function clean_up(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
-        if (!\defined('_YabeWebfont\\DP_FH_BASE')) {
+        if (!\defined('DP_FH_BASE')) {
             return new WP_REST_Response(['message' => 'Font Hero plugin is not activated'], 404);
         }
         /** @var wpdb $wpdb */

@@ -51,17 +51,17 @@ class BricksCustomFonts extends AbstractApi implements ApiInterface
      */
     public function import_fonts(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
-        if (!\defined('_YabeWebfont\\BRICKS_DB_CUSTOM_FONTS')) {
+        if (!\defined('BRICKS_DB_CUSTOM_FONTS')) {
             return new WP_REST_Response(['message' => 'Bricks theme not activated'], 404);
         }
         /** @var wpdb $wpdb */
         global $wpdb;
-        $font_ids = \get_posts(['post_type' => BRICKS_DB_CUSTOM_FONTS, 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => \true]);
+        $font_ids = \get_posts(['post_type' => \BRICKS_DB_CUSTOM_FONTS, 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => \true]);
         \add_filter('wp_check_filetype_and_ext', static fn($data, $file, $filename, $mimes) => Upload::disable_real_mime_check($data, $file, $filename, $mimes), 10, 4);
         \add_filter('upload_mimes', static fn($mime_types) => Upload::upload_mimes($mime_types, \true), 1000001);
         $font_mime_types = ['woff2' => 'font/woff2', 'woff' => 'font/woff', 'ttf' => 'font/ttf'];
         foreach ($font_ids as $font_id) {
-            $bricks_font_faces = \get_post_meta($font_id, BRICKS_DB_CUSTOM_FONT_FACES, \true);
+            $bricks_font_faces = \get_post_meta($font_id, \BRICKS_DB_CUSTOM_FONT_FACES, \true);
             if ($bricks_font_faces === \false || empty($bricks_font_faces)) {
                 continue;
             }
@@ -92,10 +92,10 @@ class BricksCustomFonts extends AbstractApi implements ApiInterface
     }
     public function clean_up(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
-        if (!\defined('_YabeWebfont\\BRICKS_DB_CUSTOM_FONTS')) {
+        if (!\defined('BRICKS_DB_CUSTOM_FONTS')) {
             return new WP_REST_Response(['message' => 'Bricks theme not activated'], 404);
         }
-        $font_ids = \get_posts(['post_type' => BRICKS_DB_CUSTOM_FONTS, 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => \true]);
+        $font_ids = \get_posts(['post_type' => \BRICKS_DB_CUSTOM_FONTS, 'posts_per_page' => -1, 'fields' => 'ids', 'no_found_rows' => \true]);
         foreach ($font_ids as $font_id) {
             \wp_trash_post($font_id);
         }
