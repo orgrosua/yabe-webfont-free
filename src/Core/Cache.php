@@ -36,6 +36,10 @@ class Cache
      * @var string
      */
     public const CACHE_DIR = '/yabe-webfont/cache/';
+    /**
+     * @var string
+     */
+    public static $typekit_embed = 'css';
     public function __construct()
     {
         \add_filter('cron_schedules', fn($schedules) => $this->filter_cron_schedules($schedules));
@@ -199,7 +203,7 @@ class Cache
         /** @var wpdb $wpdb */
         global $wpdb;
         $html = '';
-        $sql = "\n            SELECT metadata, font_faces FROM {$wpdb->prefix}yabe_webfont_fonts\n            WHERE status = 1\n                AND deleted_at IS NULL\n        ";
+        $sql = "\n            SELECT metadata, font_faces, type FROM {$wpdb->prefix}yabe_webfont_fonts\n            WHERE status = 1\n                AND deleted_at IS NULL\n        ";
         $result = $wpdb->get_results($sql);
         if (empty($result)) {
             return $html;
@@ -223,13 +227,28 @@ class Cache
         foreach ($preload_files as $preload_file) {
             $html .= \sprintf('<link rel="preload" href="%s" as="font" type="%s" crossorigin>' . \PHP_EOL, $preload_file['href'], $preload_file['type']);
         }
+        // Adobe Fonts
+        if (self::$typekit_embed === 'js') {
+            $project_id = Config::get('adobe_fonts.project_id', null);
+            if ($project_id !== null) {
+                // check if the $result array contain item.type = 'adobe-fonts'
+                $any_adobe_fonts = \array_search('adobe-fonts', \array_column($result, 'type'), \true);
+                if ($any_adobe_fonts !== \false) {
+                    $html .= self::get_kit_js($project_id);
+                }
+            }
+        }
         return $html;
     }
     public static function get_kit_css($kit_id) : string
     {
         $css = '';
         $response = \wp_remote_get(\sprintf('https://use.typekit.net/%s.css', $kit_id));
-        if (\is_wp_error($response)) {
+        if (\is_wp_error($response) || \wp_remote_retrieve_response_code($response) !== 200) {
+            // The kit is only available in JS
+            if (\wp_remote_retrieve_response_code($response) === 412) {
+                self::$typekit_embed = 'js';
+            }
             return $css;
         }
         $body = \wp_remote_retrieve_body($response);
@@ -237,6 +256,19 @@ class Cache
             return $css;
         }
         return $css . ($body . "\n\n");
+    }
+    public static function get_kit_js($kit_id) : string
+    {
+        $js = '';
+        $response = \wp_remote_get(\sprintf('https://use.typekit.net/%s.js', $kit_id));
+        if (\is_wp_error($response) || \wp_remote_retrieve_response_code($response) !== 200) {
+            return $js;
+        }
+        $body = \wp_remote_retrieve_body($response);
+        if (\is_wp_error($body)) {
+            return $js;
+        }
+        return $js . ("\n\n" . '<script type="text/javascript">' . $body . '</script>' . "\n\n");
     }
     /**
      * Clear the cache from various cache plugins.
