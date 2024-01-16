@@ -268,7 +268,12 @@ class Cache
         if (\is_wp_error($body)) {
             return $js;
         }
-        return $js . ("\n\n" . '<script type="text/javascript">' . $body . '</script>' . "\n\n");
+        $js .= '<script type="text/javascript">';
+        $js .= $body;
+        $js .= "\n\n";
+        $js .= \sprintf('try{Typekit.load({kitId:"%s",scriptTimeout:3E3,async:true});}catch(e){}', $kit_id);
+        $js .= '</script>';
+        return "\n\n" . $js . "\n\n";
     }
     /**
      * Clear the cache from various cache plugins.
