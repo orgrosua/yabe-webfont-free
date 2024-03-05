@@ -26,7 +26,7 @@ class Font
             /** @var wpdb $wpdb */
             global $wpdb;
             $fonts = [];
-            $sql = "\n                SELECT * FROM {$wpdb->prefix}yabe_webfont_fonts \n                WHERE status = 1\n                    AND deleted_at IS NULL\n            ";
+            $sql = "\n                SELECT * FROM {$wpdb->prefix}yabe_webfont_fonts \n                WHERE status = 1\n                    AND deleted_at IS NULL\n                ORDER BY title ASC\n            ";
             $result = $wpdb->get_results($sql);
             foreach ($result as $row) {
                 $f = ['title' => $row->title, 'family' => $row->family, 'type' => $row->type, 'slug' => $row->slug, 'css' => ['slug' => self::slugify($row->family), 'custom_property' => self::css_custom_property($row->family), 'variable' => self::css_variable($row->family)], 'variants' => [], 'fallback_family' => null];
