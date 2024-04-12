@@ -28,7 +28,7 @@ class Migrator
         if (!\class_exists('WP_CLI')) {
             return;
         }
-        \WP_CLI::add_command($this->commandNamespace, Command::class);
+        \WP_CLI::add_command($this->commandNamespace, new Command($this));
     }
     public function install() : void
     {

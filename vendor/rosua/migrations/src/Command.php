@@ -10,6 +10,11 @@ use function WP_CLI\Utils\format_items;
  */
 class Command extends WP_CLI_Command
 {
+    private Migrator $migrator;
+    public function __construct($migrator)
+    {
+        $this->migrator = $migrator;
+    }
     /**
      * @var string
      */
@@ -49,7 +54,6 @@ TEMPLATE;
     public function generate($args, $assoc_args)
     {
         $tableName = $assoc_args['table-name'] ?? null;
-        $migrator = Migrator::getInstance();
         $replacements = ['<tableName>' => $tableName];
         $up = null;
         $down = null;
@@ -59,12 +63,11 @@ TEMPLATE;
             $down = \strtr($this->getTableDownTemplate(), $replacements);
             $down = \preg_replace('#^ +$#m', '', $down);
         }
-        $migrator->generate($up, $down);
+        $this->migrator->generate($up, $down);
     }
     public function list($args, $assoc_args)
     {
-        $migrator = Migrator::getInstance();
-        $migrations = $migrator->list();
+        $migrations = $this->migrator->list();
         format_items('table', $migrations, ['version', 'executed_at', 'execution_time', 'executed']);
     }
     private function getTableUpTemplate() : string

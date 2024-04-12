@@ -54,7 +54,7 @@ class Stopwatch implements ResetInterface
      *
      * @throws \LogicException When the section to re-open is not reachable
      */
-    public function openSection(string $id = null)
+    public function openSection(?string $id = null)
     {
         $current = \end($this->activeSections);
         if (null !== $id && null === $current->get($id)) {
@@ -87,7 +87,7 @@ class Stopwatch implements ResetInterface
      *
      * @return StopwatchEvent
      */
-    public function start(string $name, string $category = null)
+    public function start(string $name, ?string $category = null)
     {
         return \end($this->activeSections)->startEvent($name, $category);
     }

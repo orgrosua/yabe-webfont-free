@@ -68,7 +68,7 @@ class AdminPage
         $handle = YABE_WEBFONT::WP_OPTION . ':app';
         AssetVite::get_instance()->enqueue_asset('assets/app.js', ['handle' => $handle, 'in_footer' => \true]);
         \wp_set_script_translations($handle, 'yabe-webfont');
-        \wp_localize_script($handle, 'yabeWebfont', ['_version' => YABE_WEBFONT::VERSION, '_wpnonce' => \wp_create_nonce(YABE_WEBFONT::WP_OPTION), 'option_namespace' => YABE_WEBFONT::WP_OPTION, 'text_domain' => 'yabe-webfont', 'web_history' => self::get_page_url(), 'rest_api' => ['nonce' => \wp_create_nonce('wp_rest'), 'root' => \esc_url_raw(\rest_url()), 'namespace' => YABE_WEBFONT::REST_NAMESPACE, 'url' => \esc_url_raw(\rest_url(YABE_WEBFONT::REST_NAMESPACE))], 'assets' => ['url' => Asset::asset_base_url()], 'lite_edition' => !\class_exists(PluginUpdater::class), 'hostedWakufont' => \rtrim(\apply_filters('f!yabe/webfont/font:wakufont_self_hosted', YABE_WEBFONT::HOSTED_WAKUFONT), '/')]);
+        \wp_localize_script($handle, 'yabeWebfont', ['_version' => YABE_WEBFONT::VERSION, '_wpnonce' => \wp_create_nonce(YABE_WEBFONT::WP_OPTION), 'option_namespace' => YABE_WEBFONT::WP_OPTION, 'text_domain' => 'yabe-webfont', 'web_history' => self::get_page_url(), 'rest_api' => ['nonce' => \wp_create_nonce('wp_rest'), 'root' => \esc_url_raw(\rest_url()), 'namespace' => YABE_WEBFONT::REST_NAMESPACE, 'url' => \esc_url_raw(\rest_url(YABE_WEBFONT::REST_NAMESPACE))], 'assets' => ['url' => AssetVite::asset_base_url()], 'lite_edition' => !\class_exists(PluginUpdater::class), 'hostedWakufont' => \rtrim(\apply_filters('f!yabe/webfont/font:wakufont_self_hosted', YABE_WEBFONT::HOSTED_WAKUFONT), '/')]);
     }
     private function ajax_query_attachments_args(array $query) : array
     {

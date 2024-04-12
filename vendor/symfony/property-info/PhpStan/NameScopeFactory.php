@@ -18,7 +18,7 @@ use _YabeWebfont\phpDocumentor\Reflection\Types\ContextFactory;
  */
 final class NameScopeFactory
 {
-    public function create(string $calledClassName, string $declaringClassName = null) : NameScope
+    public function create(string $calledClassName, ?string $declaringClassName = null) : NameScope
     {
         $declaringClassName = $declaringClassName ?? $calledClassName;
         $path = \explode('\\', $calledClassName);
