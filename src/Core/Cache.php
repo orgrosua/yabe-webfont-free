@@ -114,8 +114,17 @@ class Cache
             }
         }
         foreach ($result as $row) {
-            $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
-            $font_faces = Upload::refresh_font_faces_attachment_url(\json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR));
+            try {
+                $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $metadata = \json_decode(\gzuncompress(\base64_decode($row->metadata)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            try {
+                $font_faces = \json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $font_faces = \json_decode(\gzuncompress(\base64_decode($row->font_faces)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            $font_faces = Upload::refresh_font_faces_attachment_url($font_faces);
             foreach ($font_faces as $font_face) {
                 if ($font_face->comment) {
                     $css .= "/* {$font_face->comment} */\n";
@@ -145,7 +154,11 @@ class Cache
         // CSS custom properties (variables)
         $css .= ":root {\n";
         foreach ($result as $row) {
-            $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            try {
+                $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $metadata = \json_decode(\gzuncompress(\base64_decode($row->metadata)), null, 512, \JSON_THROW_ON_ERROR);
+            }
             $selectorParts = [];
             $fallbackFamily = '';
             // if property selector is exists
@@ -161,8 +174,17 @@ class Cache
         }
         $css .= "}\n\n";
         foreach ($result as $row) {
-            $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
-            $font_faces = Upload::refresh_font_faces_attachment_url(\json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR));
+            try {
+                $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $metadata = \json_decode(\gzuncompress(\base64_decode($row->metadata)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            try {
+                $font_faces = \json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $font_faces = \json_decode(\gzuncompress(\base64_decode($row->font_faces)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            $font_faces = Upload::refresh_font_faces_attachment_url($font_faces);
             $selectorParts = [];
             if (\property_exists($metadata, 'selector') && $metadata->selector) {
                 $selectorParts = \explode('|', $metadata->selector);
@@ -210,8 +232,17 @@ class Cache
         }
         $preload_files = [];
         foreach ($result as $row) {
-            $font_faces = Upload::refresh_font_faces_attachment_url(\json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR));
-            $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            try {
+                $metadata = \json_decode($row->metadata, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $metadata = \json_decode(\gzuncompress(\base64_decode($row->metadata)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            try {
+                $font_faces = \json_decode($row->font_faces, null, 512, \JSON_THROW_ON_ERROR);
+            } catch (\JsonException $e) {
+                $font_faces = \json_decode(\gzuncompress(\base64_decode($row->font_faces)), null, 512, \JSON_THROW_ON_ERROR);
+            }
+            $font_faces = Upload::refresh_font_faces_attachment_url($font_faces);
             foreach ($font_faces as $font_face) {
                 if ($metadata->preload || \property_exists($font_face, 'preload') && $font_face->preload) {
                     foreach ($font_face->files as $file) {
