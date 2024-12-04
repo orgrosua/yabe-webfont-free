@@ -101,6 +101,11 @@ final class PhpStanTypeHelper
             if (Type::BUILTIN_TYPE_INT === $mainType->getBuiltinType()) {
                 return [$mainType];
             }
+            $collection = $mainType->isCollection() || \is_a($mainType->getClassName(), \Traversable::class, \true) || \is_a($mainType->getClassName(), \ArrayAccess::class, \true);
+            // it's safer to fall back to other extractors if the generic type is too abstract
+            if (!$collection && !\class_exists($mainType->getClassName())) {
+                return [];
+            }
             $collectionKeyTypes = $mainType->getCollectionKeyTypes();
             $collectionKeyValues = [];
             if (1 === \count($node->genericTypes)) {
@@ -115,7 +120,7 @@ final class PhpStanTypeHelper
                     $collectionKeyValues[] = $valueSubType;
                 }
             }
-            return [new Type($mainType->getBuiltinType(), $mainType->isNullable(), $mainType->getClassName(), \true, $collectionKeyTypes, $collectionKeyValues)];
+            return [new Type($mainType->getBuiltinType(), $mainType->isNullable(), $mainType->getClassName(), $collection, $collectionKeyTypes, $collectionKeyValues)];
         }
         if ($node instanceof ArrayShapeNode) {
             return [new Type(Type::BUILTIN_TYPE_ARRAY, \false, null, \true)];

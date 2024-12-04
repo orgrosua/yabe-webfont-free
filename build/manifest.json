@@ -1,38 +1,38 @@
 {
-  "_TheBulkUpload-!~{00k}~.js": {
-    "file": "assets/TheBulkUpload-C-MPFr4G.css",
-    "src": "_TheBulkUpload-!~{00k}~.js"
-  },
-  "_TheBulkUpload-F4MpKUIN.js": {
-    "file": "assets/TheBulkUpload-F4MpKUIN.js",
+  "_TheBulkUpload-CKoET_Z8.js": {
+    "file": "assets/TheBulkUpload-CKoET_Z8.js",
     "name": "TheBulkUpload",
     "imports": [
       "assets/app.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
-      "_sortBy-Dx0BSJOJ.js"
+      "_vue-contenteditable.es-CbGfRrsL.js",
+      "_sortBy-70NnmMmY.js"
     ],
     "css": [
-      "assets/TheBulkUpload-C-MPFr4G.css"
+      "assets/TheBulkUpload-DcbXsFR5.css"
     ]
   },
-  "_TheFontInfoPanel-!~{00n}~.js": {
-    "file": "assets/TheFontInfoPanel-DEULv4Ls.css",
-    "src": "_TheFontInfoPanel-!~{00n}~.js"
+  "_TheBulkUpload-DcbXsFR5.css": {
+    "file": "assets/TheBulkUpload-DcbXsFR5.css",
+    "src": "_TheBulkUpload-DcbXsFR5.css"
   },
-  "_TheFontInfoPanel-U9d4N2fM.js": {
-    "file": "assets/TheFontInfoPanel-U9d4N2fM.js",
+  "_TheFontInfoPanel-B8OQxnXP.js": {
+    "file": "assets/TheFontInfoPanel-B8OQxnXP.js",
     "name": "TheFontInfoPanel",
     "imports": [
-      "_sortBy-Dx0BSJOJ.js",
+      "_sortBy-70NnmMmY.js",
       "__Uint8Array-CGOLgoAz.js",
       "assets/app.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
-      "_notifier-BHyuOhoy.js",
-      "_index-Irukiw1G.js"
+      "_vue-contenteditable.es-CbGfRrsL.js",
+      "_notifier-CNrCw-5Q.js",
+      "_index-CAo9eUGP.js"
     ],
     "css": [
-      "assets/TheFontInfoPanel-DEULv4Ls.css"
+      "assets/TheFontInfoPanel-BfxVq8Lo.css"
     ]
+  },
+  "_TheFontInfoPanel-BfxVq8Lo.css": {
+    "file": "assets/TheFontInfoPanel-BfxVq8Lo.css",
+    "src": "_TheFontInfoPanel-BfxVq8Lo.css"
   },
   "__Uint8Array-CGOLgoAz.js": {
     "file": "assets/_Uint8Array-CGOLgoAz.js",
@@ -52,36 +52,36 @@
       "__Uint8Array-CGOLgoAz.js"
     ]
   },
-  "_index-Irukiw1G.js": {
-    "file": "assets/index-Irukiw1G.js",
+  "_index-CAo9eUGP.js": {
+    "file": "assets/index-CAo9eUGP.js",
     "name": "index",
     "imports": [
       "assets/app.js"
     ]
   },
-  "_isEqual-Cb0x273u.js": {
-    "file": "assets/isEqual-Cb0x273u.js",
+  "_isEqual-BYi-8BMV.js": {
+    "file": "assets/isEqual-BYi-8BMV.js",
     "name": "isEqual",
     "imports": [
-      "_sortBy-Dx0BSJOJ.js"
+      "_sortBy-70NnmMmY.js"
     ]
   },
-  "_notifier-!~{00f}~.js": {
-    "file": "assets/notifier-Ble9mo3r.css",
-    "src": "_notifier-!~{00f}~.js"
-  },
-  "_notifier-BHyuOhoy.js": {
-    "file": "assets/notifier-BHyuOhoy.js",
+  "_notifier-CNrCw-5Q.js": {
+    "file": "assets/notifier-CNrCw-5Q.js",
     "name": "notifier",
     "imports": [
       "assets/app.js"
     ],
     "css": [
-      "assets/notifier-Ble9mo3r.css"
+      "assets/notifier-n8tcBKzy.css"
     ]
   },
-  "_sortBy-Dx0BSJOJ.js": {
-    "file": "assets/sortBy-Dx0BSJOJ.js",
+  "_notifier-n8tcBKzy.css": {
+    "file": "assets/notifier-n8tcBKzy.css",
+    "src": "_notifier-n8tcBKzy.css"
+  },
+  "_sortBy-70NnmMmY.js": {
+    "file": "assets/sortBy-70NnmMmY.js",
     "name": "sortBy",
     "imports": [
       "__Uint8Array-CGOLgoAz.js",
@@ -89,15 +89,15 @@
       "assets/app.js"
     ]
   },
-  "_vue-contenteditable.es-CFT2Ngme.js": {
-    "file": "assets/vue-contenteditable.es-CFT2Ngme.js",
+  "_vue-contenteditable.es-CbGfRrsL.js": {
+    "file": "assets/vue-contenteditable.es-CbGfRrsL.js",
     "name": "vue-contenteditable.es",
     "imports": [
       "assets/app.js"
     ]
   },
   "assets/app.js": {
-    "file": "assets/app-B90gRHc9.js",
+    "file": "assets/app-B__gg-FA.js",
     "name": "app",
     "src": "assets/app.js",
     "isEntry": true,
@@ -116,11 +116,11 @@
       "assets/pages/NotFound.vue"
     ],
     "css": [
-      "assets/app-DQFo329y.css"
+      "assets/app-C2YTmgBx.css"
     ]
   },
   "assets/pages/NotFound.vue": {
-    "file": "assets/NotFound-BwskW-ry.js",
+    "file": "assets/NotFound-BcN0paTY.js",
     "name": "NotFound",
     "src": "assets/pages/NotFound.vue",
     "isDynamicEntry": true,
@@ -129,7 +129,7 @@
     ]
   },
   "assets/pages/fonts/Base.vue": {
-    "file": "assets/Base-0bhqJd4o.js",
+    "file": "assets/Base-B5bamDZd.js",
     "name": "Base",
     "src": "assets/pages/fonts/Base.vue",
     "isDynamicEntry": true,
@@ -138,101 +138,101 @@
     ]
   },
   "assets/pages/fonts/Index.vue": {
-    "file": "assets/Index-w94jcx8C.js",
+    "file": "assets/Index-S106yzaT.js",
     "name": "Index",
     "src": "assets/pages/fonts/Index.vue",
     "isDynamicEntry": true,
     "imports": [
       "assets/app.js",
       "_cloneDeep-DKPH_8Zr.js",
-      "_notifier-BHyuOhoy.js",
-      "_index-Irukiw1G.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
+      "_notifier-CNrCw-5Q.js",
+      "_index-CAo9eUGP.js",
+      "_vue-contenteditable.es-CbGfRrsL.js",
       "__Uint8Array-CGOLgoAz.js"
     ],
     "css": [
-      "assets/Index-CO-z-iBq.css"
+      "assets/Index-BFeIi0Bc.css"
     ]
   },
   "assets/pages/fonts/custom/Create.vue": {
-    "file": "assets/Create-D_yJ_PHI.js",
+    "file": "assets/Create-CrBK-V2E.js",
     "name": "Create",
     "src": "assets/pages/fonts/custom/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "assets/app.js",
-      "_sortBy-Dx0BSJOJ.js",
-      "_notifier-BHyuOhoy.js",
-      "_TheBulkUpload-F4MpKUIN.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
+      "_sortBy-70NnmMmY.js",
+      "_notifier-CNrCw-5Q.js",
+      "_TheBulkUpload-CKoET_Z8.js",
+      "_vue-contenteditable.es-CbGfRrsL.js",
       "__Uint8Array-CGOLgoAz.js",
       "_get-DrT8Bxqf.js"
     ],
     "css": [
-      "assets/Create-C7DCUrjv.css"
+      "assets/Create-Bugh0lad.css"
     ]
   },
   "assets/pages/fonts/custom/Edit.vue": {
-    "file": "assets/Edit-DWEqaMQp.js",
+    "file": "assets/Edit-BU_Kh_rO.js",
     "name": "Edit",
     "src": "assets/pages/fonts/custom/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "assets/app.js",
-      "_sortBy-Dx0BSJOJ.js",
-      "_isEqual-Cb0x273u.js",
+      "_sortBy-70NnmMmY.js",
+      "_isEqual-BYi-8BMV.js",
       "_cloneDeep-DKPH_8Zr.js",
-      "_index-Irukiw1G.js",
-      "_notifier-BHyuOhoy.js",
-      "_TheBulkUpload-F4MpKUIN.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
+      "_index-CAo9eUGP.js",
+      "_notifier-CNrCw-5Q.js",
+      "_TheBulkUpload-CKoET_Z8.js",
+      "_vue-contenteditable.es-CbGfRrsL.js",
       "__Uint8Array-CGOLgoAz.js",
       "_get-DrT8Bxqf.js"
     ]
   },
   "assets/pages/fonts/google-fonts/Create.vue": {
-    "file": "assets/Create-D4xpq7Cv.js",
+    "file": "assets/Create-DplKIIJE.js",
     "name": "Create",
     "src": "assets/pages/fonts/google-fonts/Create.vue",
     "isDynamicEntry": true,
     "imports": [
       "assets/app.js",
-      "_notifier-BHyuOhoy.js",
-      "_sortBy-Dx0BSJOJ.js",
-      "_isEqual-Cb0x273u.js",
-      "_TheFontInfoPanel-U9d4N2fM.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
+      "_notifier-CNrCw-5Q.js",
+      "_sortBy-70NnmMmY.js",
+      "_isEqual-BYi-8BMV.js",
+      "_TheFontInfoPanel-B8OQxnXP.js",
+      "_vue-contenteditable.es-CbGfRrsL.js",
       "__Uint8Array-CGOLgoAz.js",
       "_get-DrT8Bxqf.js",
-      "_index-Irukiw1G.js"
+      "_index-CAo9eUGP.js"
     ],
     "css": [
-      "assets/Create-P5F_Z3Iv.css"
+      "assets/Create-DkVjzSPe.css"
     ]
   },
   "assets/pages/fonts/google-fonts/Edit.vue": {
-    "file": "assets/Edit-C66ivjXf.js",
+    "file": "assets/Edit-2fz9W_8G.js",
     "name": "Edit",
     "src": "assets/pages/fonts/google-fonts/Edit.vue",
     "isDynamicEntry": true,
     "imports": [
       "assets/app.js",
-      "_sortBy-Dx0BSJOJ.js",
-      "_isEqual-Cb0x273u.js",
-      "_TheFontInfoPanel-U9d4N2fM.js",
+      "_index-CAo9eUGP.js",
+      "_sortBy-70NnmMmY.js",
+      "_isEqual-BYi-8BMV.js",
+      "_TheFontInfoPanel-B8OQxnXP.js",
       "_cloneDeep-DKPH_8Zr.js",
-      "_notifier-BHyuOhoy.js",
-      "_vue-contenteditable.es-CFT2Ngme.js",
+      "_notifier-CNrCw-5Q.js",
+      "_vue-contenteditable.es-CbGfRrsL.js",
       "__Uint8Array-CGOLgoAz.js",
-      "_get-DrT8Bxqf.js",
-      "_index-Irukiw1G.js"
+      "_get-DrT8Bxqf.js"
     ],
     "css": [
-      "assets/Edit-CgX6orQp.css"
+      "assets/Edit-DbsC8TlM.css"
     ]
   },
   "assets/pages/migrations/Base.vue": {
-    "file": "assets/Base-DPuJfYIf.js",
+    "file": "assets/Base-C2yWqSBg.js",
     "name": "Base",
     "src": "assets/pages/migrations/Base.vue",
     "isDynamicEntry": true,
@@ -241,27 +241,27 @@
     ]
   },
   "assets/pages/migrations/CustomFontsBricks.vue": {
-    "file": "assets/CustomFontsBricks-BsRQ67gb.js",
+    "file": "assets/CustomFontsBricks-DJpSJiyt.js",
     "name": "CustomFontsBricks",
     "src": "assets/pages/migrations/CustomFontsBricks.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_notifier-BHyuOhoy.js",
+      "_notifier-CNrCw-5Q.js",
       "assets/app.js"
     ]
   },
   "assets/pages/migrations/FontHeroDplugins.vue": {
-    "file": "assets/FontHeroDplugins-FvwP3dUl.js",
+    "file": "assets/FontHeroDplugins-CiOaHK1G.js",
     "name": "FontHeroDplugins",
     "src": "assets/pages/migrations/FontHeroDplugins.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_notifier-BHyuOhoy.js",
+      "_notifier-CNrCw-5Q.js",
       "assets/app.js"
     ]
   },
   "assets/pages/migrations/Index.vue": {
-    "file": "assets/Index-Qq83tQ3A.js",
+    "file": "assets/Index-CnwJegDa.js",
     "name": "Index",
     "src": "assets/pages/migrations/Index.vue",
     "isDynamicEntry": true,
@@ -270,7 +270,7 @@
     ]
   },
   "assets/pages/settings/Index.vue": {
-    "file": "assets/Index-Wm7330B7.js",
+    "file": "assets/Index-DO_7YpP9.js",
     "name": "Index",
     "src": "assets/pages/settings/Index.vue",
     "isDynamicEntry": true,
@@ -279,7 +279,7 @@
       "_cloneDeep-DKPH_8Zr.js",
       "_get-DrT8Bxqf.js",
       "__Uint8Array-CGOLgoAz.js",
-      "_notifier-BHyuOhoy.js"
+      "_notifier-CNrCw-5Q.js"
     ]
   }
 }

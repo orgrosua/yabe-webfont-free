@@ -364,7 +364,7 @@ class ReflectionExtractor implements PropertyListExtractorInterface, PropertyTyp
         }
         $type = $this->extractFromReflectionType($reflectionType, $reflectionMethod->getDeclaringClass());
         if (1 === \count($type) && \in_array($prefix, $this->arrayMutatorPrefixes)) {
-            $type = [new Type(Type::BUILTIN_TYPE_ARRAY, \false, null, \true, new Type(Type::BUILTIN_TYPE_INT), $type[0])];
+            $type = [new Type(Type::BUILTIN_TYPE_ARRAY, $this->isNullableProperty($class, $property), null, \true, new Type(Type::BUILTIN_TYPE_INT), $type[0])];
         }
         return $type;
     }
@@ -490,8 +490,16 @@ class ReflectionExtractor implements PropertyListExtractorInterface, PropertyTyp
     {
         try {
             $reflectionProperty = new \ReflectionProperty($class, $property);
-            if (\PHP_VERSION_ID >= 80100 && $writeAccessRequired && $reflectionProperty->isReadOnly()) {
-                return \false;
+            if ($writeAccessRequired) {
+                if (\PHP_VERSION_ID >= 80100 && $reflectionProperty->isReadOnly()) {
+                    return \false;
+                }
+                if (\PHP_VERSION_ID >= 80400 && ($reflectionProperty->isProtectedSet() || $reflectionProperty->isPrivateSet())) {
+                    return \false;
+                }
+                if (\PHP_VERSION_ID >= 80400 && $reflectionProperty->isVirtual() && !$reflectionProperty->hasHook(\_YabeWebfont\PropertyHookType::Set)) {
+                    return \false;
+                }
             }
             return (bool) ($reflectionProperty->getModifiers() & $this->propertyReflectionFlags);
         } catch (\ReflectionException $e) {
@@ -686,6 +694,17 @@ class ReflectionExtractor implements PropertyListExtractorInterface, PropertyTyp
     }
     private function getWriteVisiblityForProperty(\ReflectionProperty $reflectionProperty) : string
     {
+        if (\PHP_VERSION_ID >= 80400) {
+            if ($reflectionProperty->isVirtual() && !$reflectionProperty->hasHook(\_YabeWebfont\PropertyHookType::Set)) {
+                return PropertyWriteInfo::VISIBILITY_PRIVATE;
+            }
+            if ($reflectionProperty->isPrivateSet()) {
+                return PropertyWriteInfo::VISIBILITY_PRIVATE;
+            }
+            if ($reflectionProperty->isProtectedSet()) {
+                return PropertyWriteInfo::VISIBILITY_PROTECTED;
+            }
+        }
         if ($reflectionProperty->isPrivate()) {
             return PropertyWriteInfo::VISIBILITY_PRIVATE;
         }

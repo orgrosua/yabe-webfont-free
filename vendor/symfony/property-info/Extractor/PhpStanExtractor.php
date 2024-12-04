@@ -20,6 +20,7 @@ use _YabeWebfont\PHPStan\PhpDocParser\Parser\ConstExprParser;
 use _YabeWebfont\PHPStan\PhpDocParser\Parser\PhpDocParser;
 use _YabeWebfont\PHPStan\PhpDocParser\Parser\TokenIterator;
 use _YabeWebfont\PHPStan\PhpDocParser\Parser\TypeParser;
+use _YabeWebfont\PHPStan\PhpDocParser\ParserConfig;
 use _YabeWebfont\Symfony\Component\PropertyInfo\PhpStan\NameScopeFactory;
 use _YabeWebfont\Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
 use _YabeWebfont\Symfony\Component\PropertyInfo\Type;
@@ -63,8 +64,14 @@ final class PhpStanExtractor implements PropertyTypeExtractorInterface, Construc
         $this->mutatorPrefixes = $mutatorPrefixes ?? ReflectionExtractor::$defaultMutatorPrefixes;
         $this->accessorPrefixes = $accessorPrefixes ?? ReflectionExtractor::$defaultAccessorPrefixes;
         $this->arrayMutatorPrefixes = $arrayMutatorPrefixes ?? ReflectionExtractor::$defaultArrayMutatorPrefixes;
-        $this->phpDocParser = new PhpDocParser(new TypeParser(new ConstExprParser()), new ConstExprParser());
-        $this->lexer = new Lexer();
+        if (\class_exists(ParserConfig::class)) {
+            $parserConfig = new ParserConfig([]);
+            $this->phpDocParser = new PhpDocParser($parserConfig, new TypeParser($parserConfig, new ConstExprParser($parserConfig)), new ConstExprParser($parserConfig));
+            $this->lexer = new Lexer($parserConfig);
+        } else {
+            $this->phpDocParser = new PhpDocParser(new TypeParser(new ConstExprParser()), new ConstExprParser());
+            $this->lexer = new Lexer();
+        }
         $this->nameScopeFactory = new NameScopeFactory();
     }
     public function getTypes(string $class, string $property, array $context = []) : ?array
