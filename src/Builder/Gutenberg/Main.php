@@ -62,7 +62,7 @@ class Main implements BuilderInterface
             /**
              * @see https://www.w3.org/TR/CSS22/syndata.html#value-def-identifier
              */
-            $theme_json_font_families[] = ['name' => \sprintf('[Yabe] %s', $font['title']), 'slug' => Font::slugify($font['family']), 'fontFamily' => Font::css_variable($font['family'])];
+            $theme_json_font_families[] = ['name' => $font['title'], 'slug' => Font::slugify($font['family']), 'fontFamily' => Font::css_variable($font['family'])];
         }
         $new_data = ['version' => 2, 'settings' => ['typography' => ['fontFamilies' => $theme_json_font_families]]];
         return $theme_json->update_with($new_data);
@@ -81,7 +81,7 @@ class Main implements BuilderInterface
             /**
              * @see https://www.w3.org/TR/CSS22/syndata.html#value-def-identifier
              */
-            $theme_json_font_families[] = ['name' => \sprintf('[Yabe] %s', $font['title']), 'slug' => Font::slugify($font['family']), 'fontFamily' => Font::css_variable($font['family'])];
+            $theme_json_font_families[] = ['name' => $font['title'], 'slug' => Font::slugify($font['family']), 'fontFamily' => Font::css_variable($font['family'])];
         }
         $new_data = ['version' => 2, 'settings' => ['typography' => ['fontFamilies' => ['theme' => $theme_json_font_families]]]];
         return $theme_json->update_with($new_data);
