@@ -781,6 +781,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         });
         // Cache the result for 1 day
         \set_transient($cache_key, $filteredFontFiles, \DAY_IN_SECONDS);
+        unset($font->files);
         return new WP_REST_Response(['font' => $font, 'files' => \array_values($filteredFontFiles)], 200, []);
     }
     private function fetch_google_font_file($font, string $format, string $variant, array $subsets) : string
