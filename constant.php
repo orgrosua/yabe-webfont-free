@@ -25,7 +25,7 @@ class YABE_WEBFONT
     /**
      * @var string
      */
-    public const VERSION = '1.0.71';
+    public const VERSION = '1.0.73';
     /**
      * @var string
      */
@@ -57,6 +57,16 @@ class YABE_WEBFONT
      * @var string
      */
     public const PLUGIN_URI = 'https://webfont.yabe.land';
+    /**
+     * @var 
+     */
+    public const USER_AGENTS = [
+        'WOFF2' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:43.0) Gecko/20100101 Firefox/43.0',
+        'WOFF' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:38.0) Gecko/20100101 Firefox/38.0',
+        'TTF' => 'Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) Safari/538.1 Daum/4.1',
+        // 'CURRENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/115.0',
+        'CURRENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0',
+    ];
 }
 /**
  * Plugin constants.
