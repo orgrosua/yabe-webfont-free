@@ -280,7 +280,8 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
                 }
                 // variableFontFiles
                 $var_filtered_m_font_files = \array_filter($m_font_files, static fn($f) => $f['weight'] === $m_face['weight'] && $f['style'] === $m_face['style'] && \in_array($f['format'], $metadata['google_fonts']['formats'], \true) && \array_reduce($metadata['google_fonts']['subsets'], static fn($carry, $subset) => $carry && !\preg_match('/\\d/', $subset), \true));
-                $all_filtered_m_font_files = \array_merge($all_filtered_m_font_files, $var_filtered_m_font_files);
+                // merge and remove duplicates
+                $all_filtered_m_font_files = \array_values(\array_unique(\array_merge($all_filtered_m_font_files, $var_filtered_m_font_files), \SORT_REGULAR));
                 foreach ($all_filtered_m_font_files as $filtered_m_font_file) {
                     $wght = \array_filter($metadata['google_fonts']['font_data']['axes'], static fn($a) => $a['tag'] === 'wght');
                     $wdth = \array_filter($metadata['google_fonts']['font_data']['axes'], static fn($a) => $a['tag'] === 'wdth');
