@@ -644,7 +644,9 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
     private function google_fonts_metadata(WP_REST_Request $wprestRequest) : WP_REST_Response
     {
         $file_path = Cache::get_cache_path('webfonts.json');
-        if (\apply_filters('f!yabe/webfont/font:google_fonts.metadata.force_cdn', \false)) {
+        $query = $wprestRequest->get_query_params();
+        $force_update = \filter_var($query['force'] ?? \false, \FILTER_VALIDATE_BOOLEAN);
+        if ($force_update || \apply_filters('f!yabe/webfont/font:google_fonts.metadata.force_cdn', \false)) {
             try {
                 $this->update_google_fonts_metadata();
             } catch (\Exception $e) {
@@ -658,7 +660,7 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
             Common::save_file($payload, $file_path);
         }
         if (\apply_filters('f!yabe/webfont/font:google_fonts.metadata.enable_update', \true) !== \false) {
-            if (\filemtime($file_path) < \strtotime('-7 days')) {
+            if (\filemtime($file_path) < \strtotime('-1 day')) {
                 try {
                     $this->update_google_fonts_metadata();
                 } catch (\Exception $e) {
@@ -682,6 +684,15 @@ class Font extends \Yabe\Webfont\Api\AbstractApi implements \Yabe\Webfont\Api\Ap
         if (!\file_exists($file_path)) {
             $payload = \file_get_contents(\dirname(YABE_WEBFONT::FILE) . '/fonts.json');
             Common::save_file($payload, $file_path);
+        }
+        if (\apply_filters('f!yabe/webfont/font:google_fonts.metadata.enable_update', \true) !== \false) {
+            if (\filemtime($file_path) < \strtotime('-1 day')) {
+                try {
+                    $this->update_google_fonts_metadata();
+                } catch (\Exception $e) {
+                    return new WP_REST_Response(['message' => $e->getMessage()], 500, []);
+                }
+            }
         }
         $metadata = \json_decode(\file_get_contents($file_path), null, 512, \JSON_THROW_ON_ERROR);
         // search for the font by slug
