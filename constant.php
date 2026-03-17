@@ -25,7 +25,7 @@ class YABE_WEBFONT
     /**
      * @var string
      */
-    public const VERSION = '1.0.98';
+    public const VERSION = '1.0.100';
     /**
      * @var string
      */
